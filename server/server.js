@@ -1,0 +1,184 @@
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// MongoDB Connection
+mongoose.connect(process.env.MONGODB_URI)
+.then(() => console.log('✅ MongoDB connected'))
+.catch((err) => console.error('❌ MongoDB connection error:', err));
+
+// Schemas
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: { type: String, unique: true },
+  sessionId: String,
+  createdAt: { type: Date, default: Date.now },
+});
+
+const messageSchema = new mongoose.Schema({
+  sessionId: String,
+  role: { type: String, enum: ['user', 'assistant'] },
+  content: String,
+  timestamp: { type: Date, default: Date.now },
+});
+
+const sessionSchema = new mongoose.Schema({
+  sessionId: { type: String, unique: true },
+  email: String,
+  messages: [messageSchema],
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+});
+
+// Models
+const User = mongoose.model('User', userSchema);
+const Message = mongoose.model('Message', messageSchema);
+const Session = mongoose.model('Session', sessionSchema);
+
+// API Routes
+
+// Register User
+app.post('/api/users/register', async (req, res) => {
+  try {
+    const { name, email, sessionId } = req.body;
+
+    // Check if user already exists
+    let user = await User.findOne({ email });
+    const isReturning = !!user;
+
+    if (!user) {
+      user = new User({ name, email, sessionId });
+      await user.save();
+    }
+
+    // Create or update session
+    let session = await Session.findOne({ sessionId });
+    if (!session) {
+      session = new Session({ sessionId, email, messages: [] });
+      await session.save();
+    }
+
+    res.json({ success: true, isReturning });
+  } catch (error) {
+    console.error('Register error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Save Message
+app.post('/api/messages/save', async (req, res) => {
+  try {
+    const { sessionId, role, content } = req.body;
+
+    // Save message to database
+    const message = new Message({ sessionId, role, content });
+    await message.save();
+
+    // Update session with message
+    await Session.findOneAndUpdate(
+      { sessionId },
+      {
+        $push: { messages: message },
+        updatedAt: new Date(),
+      },
+      { new: true }
+    );
+
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Save message error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Get Messages
+app.get('/api/messages', async (req, res) => {
+  try {
+    const { sessionId } = req.query;
+
+    const session = await Session.findOne({ sessionId });
+    if (!session) {
+      return res.json({ success: true, messages: [] });
+    }
+
+    const messages = await Message.find({ sessionId }).sort({ timestamp: 1 });
+
+    res.json({
+      success: true,
+      messages: messages.map((msg) => ({
+        role: msg.role,
+        content: msg.content,
+        timestamp: msg.timestamp.toISOString(),
+      })),
+    });
+  } catch (error) {
+    console.error('Get messages error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Reset Session
+app.post('/api/sessions/reset', async (req, res) => {
+  try {
+    const { sessionId } = req.body;
+
+    // Don't delete messages from DB - keep history stored
+    // Only clear the UI state on frontend
+    await Session.findOneAndUpdate(
+      { sessionId },
+      { updatedAt: new Date() },
+      { new: true }
+    );
+
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Reset session error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Get User Sessions
+app.get('/api/sessions', async (req, res) => {
+  try {
+    const { email } = req.query;
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.json({ success: true, user: null, sessions: [] });
+    }
+
+    const sessions = await Session.find({ email }).sort({ createdAt: -1 });
+
+    res.json({
+      success: true,
+      user,
+      sessions: sessions.map((s) => ({
+        sessionId: s.sessionId,
+        createdAt: s.createdAt,
+        messageCount: s.messages.length,
+      })),
+    });
+  } catch (error) {
+    console.error('Get sessions error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Health check
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+});

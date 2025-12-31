@@ -1,5 +1,3 @@
-import { supabase } from '@/integrations/supabase/client';
-
 interface RegisterUserPayload {
   name: string;
   email: string;
@@ -18,19 +16,19 @@ interface ApiResponse<T = unknown> {
   data?: T;
 }
 
-const EDGE_FUNCTION_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat-db`;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-const callEdgeFunction = async <T>(
-  action: string,
+const callMongoApi = async <T>(
+  endpoint: string,
   method: 'GET' | 'POST' = 'POST',
   body?: Record<string, unknown>,
   queryParams?: Record<string, string>
 ): Promise<T> => {
-  let url = `${EDGE_FUNCTION_URL}?action=${action}`;
+  let url = `${API_BASE_URL}/${endpoint}`;
   
   if (queryParams) {
     Object.entries(queryParams).forEach(([key, value]) => {
-      url += `&${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+      url += `?${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
     });
   }
 
@@ -38,7 +36,6 @@ const callEdgeFunction = async <T>(
     method,
     headers: {
       'Content-Type': 'application/json',
-      'apikey': import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
     },
   };
 
@@ -57,21 +54,21 @@ const callEdgeFunction = async <T>(
 };
 
 export const registerUser = async (payload: RegisterUserPayload): Promise<{ success: boolean; isReturning?: boolean }> => {
-  return callEdgeFunction('register_user', 'POST', payload as unknown as Record<string, unknown>);
+  return callMongoApi('users/register', 'POST', payload as unknown as Record<string, unknown>);
 };
 
 export const saveMessage = async (payload: SaveMessagePayload): Promise<{ success: boolean }> => {
-  return callEdgeFunction('save_message', 'POST', payload as unknown as Record<string, unknown>);
+  return callMongoApi('messages/save', 'POST', payload as unknown as Record<string, unknown>);
 };
 
 export const getMessages = async (sessionId: string): Promise<{ success: boolean; messages: Array<{ role: string; content: string; timestamp: string }> }> => {
-  return callEdgeFunction('get_messages', 'GET', undefined, { sessionId });
+  return callMongoApi('messages', 'GET', undefined, { sessionId });
 };
 
 export const resetSession = async (sessionId: string): Promise<{ success: boolean }> => {
-  return callEdgeFunction('reset_session', 'POST', { sessionId });
+  return callMongoApi('sessions/reset', 'POST', { sessionId });
 };
 
 export const getUserSessions = async (email: string): Promise<{ success: boolean; user?: unknown; sessions: unknown[] }> => {
-  return callEdgeFunction('get_user_sessions', 'GET', undefined, { email });
+  return callMongoApi('sessions', 'GET', undefined, { email });
 };
