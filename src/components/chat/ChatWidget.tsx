@@ -238,17 +238,21 @@ const ChatWidget = ({
       <Button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          'fixed bottom-6 right-6 z-50 w-16 h-16 p-0 bg-transparent shadow-none hover:shadow-none hover:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 transition-transform duration-300',
+          'fixed bottom-6 right-6 z-50 w-14 h-14 p-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 transition-all duration-300 border-2 border-yellow-400 rounded-full shadow-lg shadow-yellow-500/40 hover:shadow-xl hover:shadow-yellow-500/60',
           isOpen ? 'scale-0 opacity-0' : 'scale-100 opacity-100 animate-bounce-in'
         )}
         variant="ghost"
-        size="iconLg"
+        size="icon"
       >
-        <img
-          src="/yellow.png"
-          alt="Farm Vaidya"
-          className="w-full h-full object-contain"
-        />
+        <div className="relative w-full h-full animate-bubble-roll overflow-hidden rounded-full">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <img
+              src="/yellow.png"
+              alt="Farm Vaidya"
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </div>
       </Button>
 
       {/* Chat Window */}
