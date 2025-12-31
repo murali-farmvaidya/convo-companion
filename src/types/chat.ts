@@ -17,6 +17,12 @@ export interface ConversationSession {
   isTyping: boolean;
 }
 
+export interface ConversationSummary {
+  sessionId: string;
+  createdAt: string;
+  messageCount: number;
+}
+
 export interface LightRAGRequest {
   query: string;
   mode: 'local' | 'global' | 'hybrid' | 'naive' | 'mix' | 'bypass';

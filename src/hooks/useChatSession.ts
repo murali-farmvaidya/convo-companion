@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import { ChatUser, ChatMessage, ConversationSession } from '@/types/chat';
-import { registerUser, saveMessage, getMessages, resetSession as resetSessionApi } from '@/services/mongoApi';
+import { registerUser, saveMessage, getMessages, getUserSessions, deleteUserSession, resetSession as resetSessionApi } from '@/services/mongoApi';
 
 const STORAGE_KEY = 'chat_session';
 
@@ -40,12 +40,56 @@ export const useChatSession = () => {
     setSession(newSession);
   }, []);
 
-  const startSession = useCallback(async (name: string, email: string) => {
+  useEffect(() => {
+    const sessionId = session?.user.sessionId;
+    if (!sessionId) return;
+
+    let isActive = true;
+
+    const syncHistory = async () => {
+      try {
+        setIsSyncing(true);
+        const response = await getMessages(sessionId);
+        const remoteMessages = response?.messages || [];
+
+        if (!remoteMessages.length || !session) return;
+
+        const mappedMessages: ChatMessage[] = remoteMessages.map((message, idx) => ({
+          id: `srv_${sessionId}_${idx}`,
+          role: message.role === 'assistant' ? 'assistant' : 'user',
+          content: message.content,
+          timestamp: new Date(message.timestamp),
+        }));
+
+        if (mappedMessages.length > session.messages.length) {
+          const syncedSession: ConversationSession = {
+            ...session,
+            messages: mappedMessages,
+          };
+          if (isActive) {
+            saveSessionLocally(syncedSession);
+          }
+        }
+      } catch (error) {
+        console.error('Failed to load history from MongoDB:', error);
+      } finally {
+        if (isActive) setIsSyncing(false);
+      }
+    };
+
+    syncHistory();
+
+    return () => {
+      isActive = false;
+    };
+  }, [session, saveSessionLocally]);
+
+  const startSession = useCallback(async (name: string, contact: string) => {
     const sessionId = generateSessionId();
     
     const user: ChatUser = {
       name,
-      email,
+      email: contact,
       sessionId,
     };
 
@@ -68,7 +112,7 @@ export const useChatSession = () => {
     // Then sync to MongoDB
     try {
       setIsSyncing(true);
-      await registerUser({ name, email, sessionId });
+      await registerUser({ name, email: contact, sessionId });
       await saveMessage({
         sessionId,
         role: 'assistant',
@@ -84,6 +128,65 @@ export const useChatSession = () => {
 
     return newSession;
   }, [saveSessionLocally]);
+
+  const continueExistingSession = useCallback(
+    async (contact: string, sessionId?: string, fallbackName?: string) => {
+      setIsSyncing(true);
+      try {
+        const targetSessionId = sessionId || undefined;
+        const sessionsResponse = await getUserSessions(contact);
+        const sessions = sessionsResponse.sessions || [];
+        const existingUser = sessionsResponse.user;
+
+        if (!sessions.length) {
+          throw new Error('No previous conversations found for this contact.');
+        }
+
+        const chosenSession = targetSessionId
+          ? sessions.find((s) => s.sessionId === targetSessionId)
+          : sessions[0];
+
+        if (!chosenSession) {
+          throw new Error('Selected conversation not found.');
+        }
+
+        const messagesResponse = await getMessages(chosenSession.sessionId);
+        const remoteMessages = messagesResponse.messages || [];
+
+        const mappedMessages: ChatMessage[] = remoteMessages.map((message, idx) => ({
+          id: `srv_${chosenSession.sessionId}_${idx}`,
+          role: message.role === 'assistant' ? 'assistant' : 'user',
+          content: message.content,
+          timestamp: new Date(message.timestamp),
+        }));
+
+        const hydratedSession: ConversationSession = {
+          user: {
+            name: existingUser?.name || fallbackName || 'Guest',
+            email: contact,
+            sessionId: chosenSession.sessionId,
+          },
+          messages: mappedMessages,
+          isTyping: false,
+        };
+
+        saveSessionLocally(hydratedSession);
+        return hydratedSession;
+      } finally {
+        setIsSyncing(false);
+      }
+    },
+    [saveSessionLocally]
+  );
+
+  const fetchUserSessions = useCallback(async (contact: string) => {
+    setIsSyncing(true);
+    try {
+      return await getUserSessions(contact);
+    } finally {
+      setIsSyncing(false);
+    }
+  }, []);
 
   const addMessage = useCallback(async (role: 'user' | 'assistant', content: string) => {
     const newMessage: ChatMessage = {
@@ -134,6 +237,10 @@ export const useChatSession = () => {
     }
   }, [session]);
 
+  const deleteSessionHandler = useCallback(async (sessionId: string) => {
+    await deleteUserSession(sessionId);
+  }, []);
+
   const getConversationHistory = useCallback(() => {
     if (!session) return [];
     return session.messages.map((m) => ({
@@ -151,6 +258,9 @@ export const useChatSession = () => {
     addMessage,
     resetSession: resetSessionHandler,
     getConversationHistory,
+    fetchUserSessions,
+    continueExistingSession,
+    deleteSession: deleteSessionHandler,
     isAuthenticated: !!session?.user,
   };
 };

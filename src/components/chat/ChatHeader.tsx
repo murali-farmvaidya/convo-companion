@@ -1,28 +1,41 @@
 import { Button } from '@/components/ui/button';
-import { X, RotateCcw, Leaf } from 'lucide-react';
+import { X, RotateCcw, ChevronLeft } from 'lucide-react';
 
 interface ChatHeaderProps {
   userName?: string;
   onClose: () => void;
   onReset: () => void;
+  onBack?: () => void;
 }
 
-const ChatHeader = ({ userName, onClose, onReset }: ChatHeaderProps) => {
+const ChatHeader = ({ userName, onClose, onReset, onBack }: ChatHeaderProps) => {
   return (
-    <div className="flex items-center justify-between p-4 border-b border-border/50 bg-card/80 backdrop-blur-sm">
+    <div className="flex items-center justify-between p-4 border-b border-amber-200 bg-gradient-to-r from-yellow-400 via-green-400 to-amber-500">
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shadow-glow">
-          <Leaf className="w-5 h-5 text-primary-foreground" />
-        </div>
+        <img 
+          src="/yellow.png" 
+          alt="Chat Logo"
+          className="w-10 h-10 rounded-lg object-cover"
+        />
         <div>
-          <h3 className="font-semibold text-foreground text-sm">Farm Vaidya Support</h3>
+          <h3 className="font-bold text-foreground text-sm">Customer Support</h3>
           {userName && (
-            <p className="text-xs text-muted-foreground">Chatting with {userName}</p>
+            <p className="text-xs text-foreground/70">Chatting with {userName}</p>
           )}
         </div>
       </div>
       
       <div className="flex items-center gap-1">
+        {onBack && (
+          <Button
+            variant="chatGhost"
+            size="iconSm"
+            onClick={onBack}
+            title="Back to history"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </Button>
+        )}
         {userName && (
           <Button
             variant="chatGhost"

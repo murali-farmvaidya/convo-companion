@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import Index from "./pages/Index";
+import ChatWidget from "@/components/chat/ChatWidget";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -16,11 +16,20 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <div className="w-full h-screen bg-gradient-to-br from-yellow-100 via-amber-100 via-green-100 to-stone-50">
+            {/* Keep routes minimal; page intentionally blank behind floating widget */}
+            <Routes>
+              {/* Render nothing for all routes to keep background clean */}
+              <Route path="*" element={<div />} />
+            </Routes>
+            {/* Floating customer-support widget in bottom-right */}
+            <ChatWidget 
+              apiBaseUrl="http://localhost:3000/api"
+              theme="light"
+              floating={true}
+              title="Customer Support"
+            />
+          </div>
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

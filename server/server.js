@@ -147,6 +147,21 @@ app.post('/api/sessions/reset', async (req, res) => {
   }
 });
 
+// Delete Session and its messages
+app.delete('/api/sessions/:sessionId', async (req, res) => {
+  try {
+    const { sessionId } = req.params;
+
+    await Session.findOneAndDelete({ sessionId });
+    await Message.deleteMany({ sessionId });
+
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Delete session error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Get User Sessions
 app.get('/api/sessions', async (req, res) => {
   try {
@@ -157,7 +172,7 @@ app.get('/api/sessions', async (req, res) => {
       return res.json({ success: true, user: null, sessions: [] });
     }
 
-    const sessions = await Session.find({ email }).sort({ createdAt: -1 });
+    const sessions = await Session.find({ email }).sort({ updatedAt: -1 });
 
     res.json({
       success: true,

@@ -20,7 +20,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const callMongoApi = async <T>(
   endpoint: string,
-  method: 'GET' | 'POST' = 'POST',
+  method: 'GET' | 'POST' | 'DELETE' = 'POST',
   body?: Record<string, unknown>,
   queryParams?: Record<string, string>
 ): Promise<T> => {
@@ -69,6 +69,17 @@ export const resetSession = async (sessionId: string): Promise<{ success: boolea
   return callMongoApi('sessions/reset', 'POST', { sessionId });
 };
 
-export const getUserSessions = async (email: string): Promise<{ success: boolean; user?: unknown; sessions: unknown[] }> => {
-  return callMongoApi('sessions', 'GET', undefined, { email });
+export const getUserSessions = async (
+  contact: string
+): Promise<{
+  success: boolean;
+  user?: { name?: string; email?: string } | null;
+  sessions: Array<{ sessionId: string; createdAt: string; messageCount: number }>;
+}> => {
+  // Backend expects `email` query param; we pass contact (email or phone) in the same field.
+  return callMongoApi('sessions', 'GET', undefined, { email: contact });
+};
+
+export const deleteUserSession = async (sessionId: string): Promise<{ success: boolean }> => {
+  return callMongoApi(`sessions/${sessionId}`, 'DELETE');
 };
