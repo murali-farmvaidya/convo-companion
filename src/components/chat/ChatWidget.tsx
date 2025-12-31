@@ -18,6 +18,7 @@ const ChatWidget = () => {
   const {
     session,
     isTyping,
+    isSyncing,
     setIsTyping,
     startSession,
     addMessage,
@@ -34,8 +35,8 @@ const ChatWidget = () => {
     scrollToBottom();
   }, [session?.messages, isTyping]);
 
-  const handleRegistration = (name: string, email: string) => {
-    startSession(name, email);
+  const handleRegistration = async (name: string, email: string) => {
+    await startSession(name, email);
     toast({
       title: "Welcome!",
       description: `Great to have you, ${name}! Ask me anything about agricultural solutions.`,
