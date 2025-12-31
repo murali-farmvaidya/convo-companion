@@ -1,5 +1,6 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { ChatUser, ChatMessage, ConversationSession } from '@/types/chat';
+import { registerUser, saveMessage, getMessages, resetSession as resetSessionApi } from '@/services/mongoApi';
 
 const STORAGE_KEY = 'chat_session';
 
@@ -32,61 +33,106 @@ export const useChatSession = () => {
   });
 
   const [isTyping, setIsTyping] = useState(false);
+  const [isSyncing, setIsSyncing] = useState(false);
 
-  const saveSession = useCallback((newSession: ConversationSession) => {
+  const saveSessionLocally = useCallback((newSession: ConversationSession) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(newSession));
     setSession(newSession);
   }, []);
 
-  const startSession = useCallback((name: string, email: string) => {
+  const startSession = useCallback(async (name: string, email: string) => {
+    const sessionId = generateSessionId();
+    
     const user: ChatUser = {
       name,
       email,
-      sessionId: generateSessionId(),
+      sessionId,
+    };
+
+    const welcomeMessage: ChatMessage = {
+      id: generateMessageId(),
+      role: 'assistant',
+      content: `Hello ${name}! 👋 Welcome to Farm Vaidya Support. I'm here to help you with any questions about our agricultural solutions, products, or services. How can I assist you today?`,
+      timestamp: new Date(),
     };
 
     const newSession: ConversationSession = {
       user,
-      messages: [
-        {
-          id: generateMessageId(),
-          role: 'assistant',
-          content: `Hello ${name}! 👋 Welcome to Farm Vaidya Support. I'm here to help you with any questions about our agricultural solutions, products, or services. How can I assist you today?`,
-          timestamp: new Date(),
-        },
-      ],
+      messages: [welcomeMessage],
       isTyping: false,
     };
 
-    saveSession(newSession);
-    return newSession;
-  }, [saveSession]);
+    // Save locally first for instant UI
+    saveSessionLocally(newSession);
 
-  const addMessage = useCallback((role: 'user' | 'assistant', content: string) => {
+    // Then sync to MongoDB
+    try {
+      setIsSyncing(true);
+      await registerUser({ name, email, sessionId });
+      await saveMessage({
+        sessionId,
+        role: 'assistant',
+        content: welcomeMessage.content,
+      });
+      console.log('Session synced to MongoDB');
+    } catch (error) {
+      console.error('Failed to sync session to MongoDB:', error);
+      // Continue anyway - local storage works as fallback
+    } finally {
+      setIsSyncing(false);
+    }
+
+    return newSession;
+  }, [saveSessionLocally]);
+
+  const addMessage = useCallback(async (role: 'user' | 'assistant', content: string) => {
+    const newMessage: ChatMessage = {
+      id: generateMessageId(),
+      role,
+      content,
+      timestamp: new Date(),
+    };
+
     setSession((prev) => {
       if (!prev) return null;
-
-      const newMessage: ChatMessage = {
-        id: generateMessageId(),
-        role,
-        content,
-        timestamp: new Date(),
-      };
 
       const newSession = {
         ...prev,
         messages: [...prev.messages, newMessage],
       };
 
-      saveSession(newSession);
+      saveSessionLocally(newSession);
+
+      // Sync to MongoDB in background
+      saveMessage({
+        sessionId: prev.user.sessionId,
+        role,
+        content,
+      }).catch((error) => {
+        console.error('Failed to save message to MongoDB:', error);
+      });
+
       return newSession;
     });
-  }, [saveSession]);
+  }, [saveSessionLocally]);
 
-  const resetSession = useCallback(() => {
+  const resetSessionHandler = useCallback(async () => {
+    const sessionId = session?.user.sessionId;
+    
+    // Clear locally
     localStorage.removeItem(STORAGE_KEY);
     setSession(null);
-  }, []);
+
+    // Sync to MongoDB
+    if (sessionId) {
+      try {
+        await resetSessionApi(sessionId);
+        console.log('Session reset in MongoDB');
+      } catch (error) {
+        console.error('Failed to reset session in MongoDB:', error);
+      }
+    }
+  }, [session]);
 
   const getConversationHistory = useCallback(() => {
     if (!session) return [];
@@ -99,10 +145,11 @@ export const useChatSession = () => {
   return {
     session,
     isTyping,
+    isSyncing,
     setIsTyping,
     startSession,
     addMessage,
-    resetSession,
+    resetSession: resetSessionHandler,
     getConversationHistory,
     isAuthenticated: !!session?.user,
   };
