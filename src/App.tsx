@@ -8,6 +8,7 @@ import ChatWidget from "@/components/chat/ChatWidget";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
 
 const App = () => (
   <HelmetProvider>
@@ -24,7 +25,7 @@ const App = () => (
             </Routes>
             {/* Floating customer-support widget in bottom-right */}
             <ChatWidget 
-              apiBaseUrl="http://localhost:3000/api"
+              apiBaseUrl={API_BASE_URL}
               theme="light"
               floating={true}
               title="Customer Support"

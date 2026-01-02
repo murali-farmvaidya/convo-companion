@@ -3,6 +3,8 @@ import { createRoot, Root } from "react-dom/client";
 import ChatWidget from "./components/chat/ChatWidget";
 import "./index.css";
 
+const DEFAULT_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
+
 // Global window type extension
 declare global {
   interface Window {
@@ -36,7 +38,7 @@ declare global {
     root.render(
       <React.StrictMode>
         <ChatWidget
-          apiBaseUrl={options.apiBaseUrl || 'http://localhost:3000/api'}
+          apiBaseUrl={options.apiBaseUrl || DEFAULT_API_BASE_URL}
           floating={options.floating !== undefined ? options.floating : true}
           theme={options.theme || 'light'}
           title={options.title || 'Chat Support'}

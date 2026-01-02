@@ -19,8 +19,10 @@ interface ChatWidgetProps {
   title?: string;
 }
 
+const DEFAULT_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
+
 const ChatWidget = ({ 
-  apiBaseUrl = 'http://localhost:3000/api',
+  apiBaseUrl = DEFAULT_API_BASE_URL,
   floating = true,
   theme = 'light',
   title = 'Chat Support'
