@@ -9,7 +9,8 @@
     "build:dev": "vite build --mode development",
     "build:widget": "vite build -c vite.widget.config.ts",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node server-prod.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
