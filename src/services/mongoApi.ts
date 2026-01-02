@@ -18,6 +18,11 @@ interface ApiResponse<T = unknown> {
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
 
+// Debug log API base URL in development
+if (import.meta.env.DEV) {
+  console.log('API_BASE_URL:', API_BASE_URL);
+}
+
 const callMongoApi = async <T>(
   endpoint: string,
   method: 'GET' | 'POST' | 'DELETE' = 'POST',
@@ -45,15 +50,29 @@ const callMongoApi = async <T>(
     options.body = JSON.stringify(body);
   }
 
-  const response = await fetch(url, options);
-  
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
-    throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
-  }
+  try {
+    const response = await fetch(url, options);
+    
+    // Check content type to ensure it's JSON
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      const text = await response.text();
+      console.error(`Non-JSON response from ${url}:`, text.substring(0, 200));
+      throw new Error(`Expected JSON but got ${contentType || 'unknown'} from ${endpoint}`);
+    }
+    
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+    }
 
-  return response.json();
+    return response.json();
+  } catch (error) {
+    console.error(`API call failed for ${endpoint}:`, error);
+    throw error;
+  }
 };
+
 
 export const registerUser = async (payload: RegisterUserPayload): Promise<{ success: boolean; isReturning?: boolean }> => {
   return callMongoApi('users/register', 'POST', payload as unknown as Record<string, unknown>);

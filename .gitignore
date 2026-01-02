@@ -31,3 +31,5 @@ server/.env
 
 
 .env
+.env.production
+.env.local

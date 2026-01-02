@@ -9,8 +9,17 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'http://localhost:3000', 'https://convo-companion.onrender.com'],
+  credentials: true
+}));
 app.use(express.json());
+
+// Request logging middleware
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI)
@@ -246,9 +255,25 @@ app.post('/api/sessions/migrate-names', async (req, res) => {
 
 // Health check
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok' });
+  res.json({ status: 'ok', mongodb: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected' });
+});
+
+// 404 handler for undefined routes
+app.use((req, res) => {
+  console.warn(`404 Not Found: ${req.method} ${req.path}`);
+  res.status(404).json({ error: 'Endpoint not found', path: req.path });
+});
+
+// Error handler
+app.use((err, req, res, next) => {
+  console.error('Server error:', err);
+  res.status(err.status || 500).json({ 
+    error: err.message || 'Internal server error',
+    path: req.path 
+  });
 });
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`📡 API Base: http://localhost:${PORT}/api`);
 });
