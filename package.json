@@ -10,7 +10,7 @@
     "build:widget": "vite build -c vite.widget.config.ts",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "node server-prod.js"
+    "start": "npx serve -s dist -l 3000"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
