@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm Vaidya Widget Test</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; width: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      padding: 20px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    h1 { 
+      color: #2c3e50; 
+      margin-bottom: 15px;
+      font-size: 2em;
+    }
+    .info {
+      background: #e8f4f8;
+      padding: 15px;
+      border-left: 4px solid #22a39f;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      color: #22a39f;
+    }
+    p { 
+      color: #555; 
+      margin-bottom: 10px; 
+      line-height: 1.8;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌾 Farm Vaidya Chat Widget</h1>
+    <div class="info">
+      <strong>✓ Widget loaded successfully!</strong><br>
+      The floating chat bubble should appear in the bottom-right corner.
+    </div>
+    
+    <h2>How to use this widget:</h2>
+    <p>This is a <strong>standalone widget bundle</strong> that can be embedded in any website. The widget appears as a floating bubble without affecting your page styling.</p>
+    
+    <h3>Features:</h3>
+    <ul style="margin-left: 20px; color: #555;">
+      <li>Floating chat bubble with rolling animation</li>
+      <li>Two-step registration (name + email/phone)</li>
+      <li>Conversation history management</li>
+      <li>Real-time chat with AI assistant</li>
+      <li>Session persistence with MongoDB backend</li>
+    </ul>
+
+    <p style="margin-top: 30px; font-size: 0.9em; color: #999;">
+      Backend API: <code>http://localhost:3000/api</code>
+    </p>
+  </div>
+
+  <!-- Widget Container -->
+  <div id="farm-vaidya-chat-widget"></div>
+
+  <!-- Load React and ReactDOM first -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+  <!-- Load Widget Bundle -->
+  <script src="./dist/fv-chat-widget.js"></script>
+  
+  <!-- Initialize Widget -->
+  <script>
+    (function() {
+      const maxRetries = 20;
+      let retries = 0;
+
+      function initWidget() {
+        if (retries >= maxRetries) {
+          console.error('❌ Failed to load widget after retries');
+          return;
+        }
+
+        if (typeof window.FarmVaidyaChatWidget !== 'undefined' && window.FarmVaidyaChatWidget.init) {
+          console.log('✅ Widget bundle loaded, initializing...');
+          try {
+            window.FarmVaidyaChatWidget.init('farm-vaidya-chat-widget', {
+              apiBaseUrl: 'http://localhost:3000/api',
+              floating: true,
+              theme: 'light'
+            });
+            console.log('✅ Widget initialized successfully!');
+          } catch (error) {
+            console.error('❌ Error initializing widget:', error);
+          }
+        } else {
+          retries++;
+          setTimeout(initWidget, 200);
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initWidget);
+      } else {
+        setTimeout(initWidget, 500);
+      }
+    })();
+  </script>
+</body>
+</html>

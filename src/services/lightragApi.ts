@@ -3,6 +3,85 @@ import { LightRAGRequest, LightRAGResponse } from '@/types/chat';
 // Change this to your LightRAG backend URL
 const LIGHTRAG_URL = 'http://localhost:9621/query';
 
+// Function to detect if text is in Telugu
+const isTeluguText = (text: string): boolean => {
+  const teluguRegex = /[\u0C00-\u0C7F]/g;
+  return teluguRegex.test(text);
+};
+
+// Function to check if response is relevant to Farm Vaidya
+const isFarmVaidyaRelated = (query: string, response: string): boolean => {
+  const farmVaidyaKeywords = [
+    'farm vaidya',
+    'farmvaidya',
+    'agriculture',
+    'farming',
+    'farmer',
+    'crop',
+    'soil',
+    'water',
+    'fertilizer',
+    'pesticide',
+    'agricultural',
+    'harvest',
+    'planting',
+    'irrigation',
+    'yield',
+    'disease',
+    'pest',
+    // Telugu keywords
+    'వ్యవసాయ',
+    'ఫార్మ్',
+    'రైతు',
+    'పంటలు',
+    'విత్తనాలు',
+    'నాట్లు',
+    'నీరు',
+    'సారం',
+    'వరిలో',
+    'కంపోస్ట్',
+    'సూక్ష్మమూలకాలు',
+    'కీటకాలు',
+    'రోగం',
+    // Hindi keywords
+    'कृषि',
+    'खेत',
+    'किसान',
+    'फसल',
+    'बीज',
+    'पानी',
+    'खाद',
+    'कीटनाशक',
+    'पोषक तत्व',
+    'बिमारी',
+    'कीट',
+    'चावल',
+    'गेहूं',
+    'मिट्टी',
+  ];
+
+  const combinedText = (query + ' ' + response).toLowerCase();
+  return farmVaidyaKeywords.some((keyword) => 
+    combinedText.includes(keyword.toLowerCase())
+  );
+};
+
+// Function to check if response is a "no knowledge" response
+const isNoKnowledgeResponse = (response: string): boolean => {
+  const noKnowledgePatterns = [
+    'no context',
+    'not in my knowledge',
+    'unable to provide',
+    "don't have",
+    'do not have',
+    '[no-context]',
+  ];
+
+  return noKnowledgePatterns.some((pattern) =>
+    response.toLowerCase().includes(pattern)
+  );
+};
+
 export const queryLightRAG = async (
   query: string,
   conversationHistory: Array<{ role: string; content: string }>,
@@ -31,7 +110,31 @@ export const queryLightRAG = async (
     }
 
     const data: LightRAGResponse = await response.json();
-    return cleanResponse(data.response);
+    let responseText = cleanResponse(data.response);
+
+    // Detect if query is in Telugu
+    const queryIsInTelugu = isTeluguText(query);
+
+    // Check if query is Farm Vaidya related
+    const isFarmVaidyaQuery = isFarmVaidyaRelated(query, responseText);
+
+    // Check if response indicates no knowledge
+    const hasNoKnowledge = isNoKnowledgeResponse(responseText);
+
+    // Apply response rules
+    if (!isFarmVaidyaQuery) {
+      // Not related to Farm Vaidya
+      responseText = queryIsInTelugu
+        ? 'క్షమించండి, నేను నిర్ధారణకు సంబంధించిన ప్రశ్నలకు మాత్రమే సమాధానం ఇవ్వగలను। దయచేసి ఫార్మ్ వైద్య గురించి ఏదైనా ప్రశ్న అడగండి'
+        : 'Sorry, I can only answer about Farm Vaidya. Please ask me about Farm Vaidya';
+    } else if (hasNoKnowledge) {
+      // Related to Farm Vaidya but not in knowledge base
+      responseText = queryIsInTelugu
+        ? 'క్షమించండి, ఈ సమాచారం నా జ్ఞానం లో లేదు'
+        : 'Sorry, this info is not in my knowledge base';
+    }
+
+    return responseText;
   } catch (error) {
     console.error('LightRAG API error:', error);
     throw new Error('Failed to get response from the server. Please try again.');

@@ -40,7 +40,7 @@
     /* Chat widget specific */
     --chat-bubble: 174 62% 35%;
     --chat-bubble-foreground: 0 0% 100%;
-    --chat-user-bubble: 174 62% 35%;
+    --chat-user-bubble: 164 100% 30%;
     --chat-bot-bubble: 210 20% 96%;
     --chat-bot-foreground: 210 40% 11%;
 
@@ -97,7 +97,7 @@
 
     --chat-bubble: 174 62% 45%;
     --chat-bubble-foreground: 210 40% 8%;
-    --chat-user-bubble: 174 62% 40%;
+    --chat-user-bubble: 164 100% 30%;
     --chat-bot-bubble: 210 30% 18%;
     --chat-bot-foreground: 210 20% 98%;
 

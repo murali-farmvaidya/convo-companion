@@ -82,9 +82,12 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
         className={cn(
           'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center',
           isUser
-            ? 'bg-primary text-primary-foreground'
+            ? 'text-white'
             : 'bg-muted text-muted-foreground'
         )}
+        style={isUser ? {
+          backgroundColor: '#008F4C',
+        } : {}}
       >
         {isUser ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
       </div>
@@ -93,9 +96,13 @@ const ChatMessage = ({ message }: ChatMessageProps) => {
         className={cn(
           'max-w-[75%] rounded-2xl px-4 py-3 text-sm leading-relaxed',
           isUser
-            ? 'bg-chat-user-bubble text-primary-foreground rounded-br-md'
+            ? 'rounded-br-md text-primary-foreground'
             : 'bg-chat-bot-bubble text-chat-bot-foreground rounded-bl-md'
         )}
+        style={isUser ? {
+          backgroundColor: '#008F4C',
+          color: '#ffffff'
+        } : {}}
       >
         <div className="space-y-1">
           {isUser ? (

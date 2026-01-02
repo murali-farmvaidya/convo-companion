@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { User, Mail, Phone, ArrowRight, History, ChevronLeft, Trash2 } from 'lucide-react';
+import { User, Mail, Phone, ArrowRight, History, ChevronLeft, Trash2, Linkedin } from 'lucide-react';
 import { z } from 'zod';
 
 const registrationSchema = z
@@ -87,78 +87,139 @@ const RegistrationForm = ({
   return (
     <div className="flex flex-col h-full min-h-0">
       {/* Header */}
-      <div className="p-6 text-center border-b border-border/50">
-        <img src="/fv.png" alt="Farm Vaidya" className="w-24 h-24 mx-auto mb-4 object-contain animate-bounce-in" />
-        <h2 className="text-xl font-bold text-foreground mb-1">Welcome to Farm Vaidya</h2>
-        <p className="text-sm text-muted-foreground">Your AI-powered agricultural assistant</p>
+      <div className="px-4 py-0 text-center border-b border-border/50">
+        <img src="./public/fv.png" alt="Farm Vaidya" className="w-[140px] h-[140px] mx-auto -mt-10 mb-0 object-contain animate-bounce-in" />
+        <h2 className="text-xl font-bold leading-tight text-foreground -mt-5">Welcome to Farm Vaidya</h2>
       </div>
 
       {step === 'form' && (
-        <form onSubmit={handleContinue} className="flex-1 min-h-0 overflow-y-auto p-6 flex flex-col justify-center space-y-4">
-          <p className="text-sm text-muted-foreground mb-2 text-center">Please introduce yourself to continue</p>
+        <form onSubmit={handleContinue} className="flex-1 min-h-0 overflow-y-auto p-4 pt-3 flex flex-col space-y-4">
+          <div className="rounded-lg p-5 space-y-4 border" style={{backgroundColor: '#e8f5f0', borderColor: '#d0ebe5'}}>
+            <p className="text-sm text-muted-foreground text-center">Please introduce yourself to continue</p>
 
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <Input
-                  type="text"
-                  placeholder="Your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="pl-10"
-                />
+            <div className="space-y-3">
+              <div className="space-y-2">
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  <Input
+                    type="text"
+                    placeholder="Your name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="pl-10"
+                  />
+                </div>
+                {errors.name && <p className="text-xs text-destructive animate-fade-in">{errors.name}</p>}
               </div>
-              {errors.name && <p className="text-xs text-destructive animate-fade-in">{errors.name}</p>}
+
+              <div className="space-y-2">
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  <Input
+                    type="email"
+                    placeholder="Your email (optional)"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="pl-10"
+                  />
+                </div>
+                {errors.email && <p className="text-xs text-destructive animate-fade-in">{errors.email}</p>}
+              </div>
+
+              <div className="space-y-2">
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  <Input
+                    type="tel"
+                    placeholder="Mobile number (optional)"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="pl-10"
+                  />
+                </div>
+                {errors.phone && <p className="text-xs text-destructive">{errors.phone}</p>}
+              </div>
+
+              {errors.contact && <p className="text-xs text-destructive">{errors.contact}</p>}
             </div>
 
-            <div className="space-y-2">
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <Input
-                  type="email"
-                  placeholder="Your email (optional)"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
-              {errors.email && <p className="text-xs text-destructive animate-fade-in">{errors.email}</p>}
-            </div>
-
-            <div className="space-y-2">
-              <div className="relative">
-                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                <Input
-                  type="tel"
-                  placeholder="Mobile number (optional)"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  className="pl-10"
-                />
-              </div>
-              {errors.phone && <p className="text-xs text-destructive">{errors.phone}</p>}
-            </div>
-
-            {errors.contact && <p className="text-xs text-destructive">{errors.contact}</p>}
+            <Button
+              type="submit"
+              className="w-full bg-[#008F4C] hover:bg-[#007A3D] text-white px-6 py-2 rounded-3xl transition-colors"
+              disabled={!name || (!email && !phone) || isSubmitting || isSyncing}
+            >
+              {isSubmitting || isSyncing ? 'Loading...' : (
+                <span className="inline-flex items-center justify-center gap-2">
+                  Continue
+                  <ArrowRight className="w-4 h-4" />
+                </span>
+              )}
+            </Button>
           </div>
 
-          <Button
-            type="submit"
-            className="w-full mt-4"
-            disabled={!name || (!email && !phone) || isSubmitting || isSyncing}
-          >
-            {isSubmitting || isSyncing ? 'Loading...' : (
-              <span className="inline-flex items-center justify-center gap-2">
-                Continue
-                <ArrowRight className="w-4 h-4" />
-              </span>
-            )}
-          </Button>
-
-          <p className="text-xs text-muted-foreground text-center mt-4">
-            By continuing, you agree to receive support from our AI assistant.
+          <p className="text-xs text-muted-foreground text-center">
+            By continuing, you agree to receive support from our AI agent.
           </p>
+
+          {/* Contact Details Footer */}
+          <div className="mt-4 pt-4 border-t border-border/30 space-y-3">
+            <div className="text-center space-y-2">
+              <p className="text-xs font-semibold text-foreground">Connect With Us</p>
+              
+              <a
+                href="mailto:ceo@farmvaidya.ai"
+                className="flex items-center justify-center gap-2 text-xs text-[#008F4C] hover:text-[#007A3D] transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                ceo@farmvaidya.ai
+              </a>
+
+              <div className="flex items-center justify-center gap-3 pt-1">
+                <a
+                  href="https://linkedin.com/company/farmvaidya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full transition-colors text-[#008F4C] hover:text-[#007A3D]"
+                  style={{backgroundColor: '#d0ebe5'}}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#b8e0d9'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#d0ebe5'}
+                  title="LinkedIn"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://twitter.com/farmvaidya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full transition-colors text-[#008F4C] hover:text-[#007A3D]"
+                  style={{backgroundColor: '#d0ebe5'}}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#b8e0d9'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#d0ebe5'}
+                  title="Twitter"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7a4.5 4.5 0 01-1.3-4.5z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.instagram.com/farmvaidyaaitech3?igsh=NHJwZWRxb204amc2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full transition-colors text-[#008F4C] hover:text-[#007A3D]"
+                  style={{backgroundColor: '#d0ebe5'}}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#b8e0d9'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#d0ebe5'}
+                  title="Instagram"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" strokeWidth="2"/>
+                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="currentColor" strokeWidth="2"/>
+                    <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </form>
       )}
 
@@ -216,7 +277,7 @@ const RegistrationForm = ({
 
           <Button
             type="button"
-            className="w-full"
+            className="w-full bg-[#008F4C] hover:bg-[#007A3D] text-white px-6 py-2 rounded-3xl transition-colors"
             onClick={onStartNew}
             disabled={isSyncing}
           >

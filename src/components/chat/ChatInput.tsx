@@ -35,7 +35,7 @@ const ChatInput = ({ onSend, disabled }: ChatInputProps) => {
 
   return (
     <form onSubmit={handleSubmit} className="p-4 border-t border-border bg-card/50">
-      <div className="flex items-end gap-2">
+      <div className="flex items-center gap-2">
         <div className="flex-1 relative">
           <textarea
             ref={textareaRef}
@@ -45,7 +45,14 @@ const ChatInput = ({ onSend, disabled }: ChatInputProps) => {
             placeholder="Type your message..."
             disabled={disabled}
             rows={1}
-            className="w-full resize-none rounded-xl border border-input bg-background px-4 py-3 pr-12 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200 max-h-[120px]"
+            className="w-full resize-none rounded-xl px-4 py-3 pr-12 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200 max-h-[120px] bg-background"
+            style={{
+              border: '2px solid #008F4C'
+            }}
+            onFocus={(e) => {
+              e.currentTarget.style.boxShadow = '0 0 0 0 rgba(0, 143, 76, 0.1)';
+              e.currentTarget.style.borderColor = '#008F4C';
+            }}
           />
         </div>
         <Button
@@ -53,7 +60,7 @@ const ChatInput = ({ onSend, disabled }: ChatInputProps) => {
           variant="chat"
           size="icon"
           disabled={!message.trim() || disabled}
-          className="flex-shrink-0"
+          className="flex-shrink-0 bg-[#008F4C] hover:bg-[#007A3D] text-white"
         >
           <Send className="w-4 h-4" />
         </Button>

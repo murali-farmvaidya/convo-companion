@@ -16,7 +16,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <div className="w-full h-screen bg-gradient-to-br from-yellow-100 via-amber-100 via-green-100 to-stone-50">
+          <div className="w-full h-screen" style={{background: 'linear-gradient(to bottom right, #fffacd, #ffecb3, #d0ebe5, #faf5f0)'}}>
             {/* Keep routes minimal; page intentionally blank behind floating widget */}
             <Routes>
               {/* Render nothing for all routes to keep background clean */}

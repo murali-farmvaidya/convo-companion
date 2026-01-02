@@ -10,10 +10,10 @@ interface ChatHeaderProps {
 
 const ChatHeader = ({ userName, onClose, onReset, onBack }: ChatHeaderProps) => {
   return (
-    <div className="flex items-center justify-between p-4 border-b border-amber-200 bg-gradient-to-r from-yellow-400 via-green-400 to-amber-500">
+    <div className="flex items-center justify-between p-4 border-b border-yellow-300" style={{backgroundColor: '#ffdd00'}}>
       <div className="flex items-center gap-3">
         <img 
-          src="/yellow.png" 
+          src="./public/yellow.png" 
           alt="Chat Logo"
           className="w-10 h-10 rounded-lg object-cover"
         />
@@ -32,6 +32,7 @@ const ChatHeader = ({ userName, onClose, onReset, onBack }: ChatHeaderProps) => 
             size="iconSm"
             onClick={onBack}
             title="Back to history"
+            className="hover:bg-amber-200/40 transition-colors"
           >
             <ChevronLeft className="w-4 h-4" />
           </Button>
