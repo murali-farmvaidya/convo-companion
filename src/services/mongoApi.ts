@@ -16,7 +16,7 @@ interface ApiResponse<T = unknown> {
   data?: T;
 }
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
 
 const callMongoApi = async <T>(
   endpoint: string,
@@ -24,7 +24,9 @@ const callMongoApi = async <T>(
   body?: Record<string, unknown>,
   queryParams?: Record<string, string>
 ): Promise<T> => {
-  let url = `${API_BASE_URL}/${endpoint}`;
+  // Remove leading slash if present in endpoint
+  const cleanEndpoint = endpoint.startsWith('/') ? endpoint.slice(1) : endpoint;
+  let url = `${API_BASE_URL}/${cleanEndpoint}`;
   
   if (queryParams) {
     Object.entries(queryParams).forEach(([key, value]) => {
