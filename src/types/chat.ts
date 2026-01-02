@@ -19,6 +19,7 @@ export interface ConversationSession {
 
 export interface ConversationSummary {
   sessionId: string;
+  name?: string;
   createdAt: string;
   messageCount: number;
 }

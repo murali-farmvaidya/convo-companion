@@ -35,6 +35,7 @@ const messageSchema = new mongoose.Schema({
 const sessionSchema = new mongoose.Schema({
   sessionId: { type: String, unique: true },
   email: String,
+  name: String,
   messages: [messageSchema],
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
@@ -84,13 +85,32 @@ app.post('/api/messages/save', async (req, res) => {
     const message = new Message({ sessionId, role, content });
     await message.save();
 
-    // Update session with message
+    // Generate conversation name from first user message
+    const session = await Session.findOne({ sessionId });
+    const updateData = {
+      $push: { messages: message },
+      updatedAt: new Date(),
+    };
+
+    // If this is the first user message and no name exists, generate name
+    if (role === 'user' && session && !session.name) {
+      // Take first 5-6 words from the message
+      const words = content.trim().split(/\s+/);
+      const nameWords = words.slice(0, Math.min(6, words.length));
+      let conversationName = nameWords.join(' ');
+      
+      // Limit to 50 characters
+      if (conversationName.length > 50) {
+        conversationName = conversationName.substring(0, 47) + '...';
+      }
+      
+      updateData.name = conversationName;
+    }
+
+    // Update session with message and name
     await Session.findOneAndUpdate(
       { sessionId },
-      {
-        $push: { messages: message },
-        updatedAt: new Date(),
-      },
+      updateData,
       { new: true }
     );
 
@@ -179,12 +199,47 @@ app.get('/api/sessions', async (req, res) => {
       user,
       sessions: sessions.map((s) => ({
         sessionId: s.sessionId,
+        name: s.name || 'New Conversation',
         createdAt: s.createdAt,
         messageCount: s.messages.length,
       })),
     });
   } catch (error) {
     console.error('Get sessions error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Migrate existing sessions to add names
+app.post('/api/sessions/migrate-names', async (req, res) => {
+  try {
+    const sessions = await Session.find({ name: { $exists: false } });
+    let updated = 0;
+
+    for (const session of sessions) {
+      // Find first user message
+      const firstUserMessage = session.messages.find(msg => msg.role === 'user');
+      
+      if (firstUserMessage) {
+        // Generate name from first user message
+        const words = firstUserMessage.content.trim().split(/\s+/);
+        const nameWords = words.slice(0, Math.min(6, words.length));
+        let conversationName = nameWords.join(' ');
+        
+        // Limit to 50 characters
+        if (conversationName.length > 50) {
+          conversationName = conversationName.substring(0, 47) + '...';
+        }
+        
+        session.name = conversationName;
+        await session.save();
+        updated++;
+      }
+    }
+
+    res.json({ success: true, updated });
+  } catch (error) {
+    console.error('Migration error:', error);
     res.status(500).json({ error: error.message });
   }
 });

@@ -33,7 +33,7 @@ interface RegistrationFormProps {
   onSelectSession: (sessionId: string) => void;
   onDeleteSession: (sessionId: string) => void;
   onBack?: () => void;
-  availableSessions?: Array<{ sessionId: string; createdAt: string; messageCount: number }>;
+  availableSessions?: Array<{ sessionId: string; name?: string; createdAt: string; messageCount: number }>;
   isSyncing?: boolean;
   pendingUser?: { name: string; contact: string } | null;
 }
@@ -258,7 +258,7 @@ const RegistrationForm = ({
                   onClick={() => onSelectSession(session.sessionId)}
                   className="flex-1 text-left"
                 >
-                  <div className="text-sm font-semibold">Conversation</div>
+                  <div className="text-sm font-semibold">{session.name || 'New Conversation'}</div>
                   <div className="text-xs text-muted-foreground">{new Date(session.createdAt).toLocaleString()}</div>
                   <div className="text-xs text-muted-foreground">{session.messageCount} msgs</div>
                 </button>

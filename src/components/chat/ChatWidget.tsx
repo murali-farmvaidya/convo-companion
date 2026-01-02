@@ -28,7 +28,7 @@ const ChatWidget = ({
   const [isOpen, setIsOpen] = useState(false);
   const [viewMode, setViewMode] = useReactState<'auth' | 'history' | 'chat'>('auth');
   const [availableSessions, setAvailableSessions] = useReactState<
-    Array<{ sessionId: string; createdAt: string; messageCount: number }>
+    Array<{ sessionId: string; name?: string; createdAt: string; messageCount: number }>
   >([]);
   const [pendingUser, setPendingUser] = useReactState<{ name: string; contact: string } | null>(null);
   const [authStep, setAuthStep] = useReactState<'form' | 'history'>('form');

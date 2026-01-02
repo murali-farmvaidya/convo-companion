@@ -96,7 +96,7 @@ export const useChatSession = () => {
     const welcomeMessage: ChatMessage = {
       id: generateMessageId(),
       role: 'assistant',
-      content: `Hello ${name}! 👋 Welcome to Farm Vaidya Support. I'm here to help you with any questions about our agricultural solutions, products, or services. How can I assist you today?`,
+      content: `Hello ${name}! 👋 Welcome to Farm Vaidya Support. I'm here to help you with any questions about farmvaidya. How can I assist you today?`,
       timestamp: new Date(),
     };
 

@@ -74,7 +74,7 @@ export const getUserSessions = async (
 ): Promise<{
   success: boolean;
   user?: { name?: string; email?: string } | null;
-  sessions: Array<{ sessionId: string; createdAt: string; messageCount: number }>;
+  sessions: Array<{ sessionId: string; name?: string; createdAt: string; messageCount: number }>;
 }> => {
   // Backend expects `email` query param; we pass contact (email or phone) in the same field.
   return callMongoApi('sessions', 'GET', undefined, { email: contact });
