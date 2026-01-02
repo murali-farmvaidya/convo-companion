@@ -10,12 +10,23 @@ export default defineConfig({
       'localhost',
       'convo-companion-ui.onrender.com',
       'convo-companion.onrender.com'
-    ]
+    ],
+    hmr: process.env.VITE_HMR_PROTOCOL && process.env.VITE_HMR_HOST
+      ? {
+          protocol: process.env.VITE_HMR_PROTOCOL,
+          host: process.env.VITE_HMR_HOST,
+          port: parseInt(process.env.VITE_HMR_PORT || '443'),
+        }
+      : undefined,
   },
   plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
   },
 });
