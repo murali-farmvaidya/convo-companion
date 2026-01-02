@@ -6,6 +6,11 @@ export default defineConfig({
   server: {
     host: "::",
     port: 8080,
+    allowedHosts: [
+      'localhost',
+      'convo-companion-ui.onrender.com',
+      'convo-companion.onrender.com'
+    ]
   },
   plugins: [react()],
   resolve: {
