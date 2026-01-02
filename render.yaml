@@ -1,29 +1,24 @@
 services:
   - type: web
-    name: convo-companion-frontend
+    name: convo-companion-ui
     env: node
     plan: free
     buildCommand: npm install && npm run build
-    startCommand: npm run preview
+    startCommand: npm run preview -- --host
     envVars:
       - key: VITE_API_BASE_URL
-        value: https://convo-companion-api.onrender.com/api
+        value: https://convo-companion.onrender.com/api
       - key: VITE_LIGHTRAG_API_URL
         value: https://overhumane-sloppily-su.ngrok-free.dev
   
   - type: web
-    name: convo-companion-api
+    name: convo-companion
     env: node
     plan: free
     buildCommand: cd server && npm install
     startCommand: cd server && node server.js
     envVars:
       - key: MONGODB_URI
-        fromDatabase:
-          name: mongodb
+        value: mongodb+srv://murali_db_user:farmvaidya@cluster0.hgzl3np.mongodb.net/convo-companion
       - key: PORT
         value: "3000"
-
-databases:
-  - name: mongodb
-    plan: free
