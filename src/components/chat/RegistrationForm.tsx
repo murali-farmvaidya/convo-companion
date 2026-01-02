@@ -88,7 +88,7 @@ const RegistrationForm = ({
     <div className="flex flex-col h-full min-h-0">
       {/* Header */}
       <div className="px-4 py-0 text-center border-b border-border/50">
-        <img src="./public/fv.png" alt="Farm Vaidya" className="w-[140px] h-[140px] mx-auto -mt-10 mb-0 object-contain animate-bounce-in" />
+        <img src="/fv.png" alt="Farm Vaidya" className="w-[140px] h-[140px] mx-auto -mt-10 mb-0 object-contain animate-bounce-in" />
         <h2 className="text-xl font-bold leading-tight text-foreground -mt-5">Welcome to Farm Vaidya</h2>
       </div>
 

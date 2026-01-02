@@ -247,7 +247,7 @@ const ChatWidget = ({
         <div className="relative w-full h-full animate-bubble-roll overflow-hidden rounded-full">
           <div className="absolute inset-0 flex items-center justify-center">
             <img
-              src="./public/yellow.png"
+              src="/yellow.png"
               alt="Farm Vaidya"
               className="w-full h-full object-contain"
             />
