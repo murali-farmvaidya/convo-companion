@@ -33,7 +33,12 @@ git push origin main
 
 **Build Command:**
 ```bash
-npm install && cd lightrag/Lightrag_main && python -m venv .venv && .venv/bin/pip install -r requirements-offline.txt
+chmod +x build.sh && ./build.sh
+```
+
+Or without the script:
+```bash
+npm install && cd lightrag/Lightrag_main && python3 -m venv .venv && source .venv/bin/activate && pip install --upgrade pip && pip install -r requirements-offline.txt
 ```
 
 **Start Command:**
