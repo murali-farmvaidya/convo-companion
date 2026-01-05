@@ -15,7 +15,6 @@ python3 -m venv .venv
 # Activate and install dependencies
 source .venv/bin/activate
 pip install --upgrade pip
-pip install -r requirements-offline.txt
-pip install json_repair nano-vectordb pypinyin
+pip install -e ".[api]"
 
 echo "✅ Build complete!"
