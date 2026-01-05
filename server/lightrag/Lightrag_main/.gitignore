@@ -47,7 +47,6 @@ neo4jWorkDir/
 # Data & Storage
 inputs/
 output/
-rag_storage/
 data/
 
 # Evaluation results
