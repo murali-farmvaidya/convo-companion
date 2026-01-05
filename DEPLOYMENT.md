@@ -1,5 +1,15 @@
 # Convo Companion - Unified Deployment
 
+## 🎯 KEY POINT: ONE .env FILE
+
+**You only need to edit ONE file**: `server/.env`
+
+This single file configures both:
+- ✅ Express Server (Node.js)
+- ✅ LightRAG Server (Python)
+
+👉 **See [ENV_GUIDE.md](ENV_GUIDE.md) for complete .env documentation**
+
 ## 🚀 Quick Start
 
 ### First Time Setup

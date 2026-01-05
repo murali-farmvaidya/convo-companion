@@ -43,34 +43,41 @@ if (!pythonExecutable) {
 
 console.log(`📦 Starting LightRAG Server with: ${pythonExecutable}`);
 
-// Check and create .env if missing
+// Create LightRAG .env from main .env
 const lightragEnvPath = path.join(lightragPath, '.env');
-if (!existsSync(lightragEnvPath)) {
-  console.log('⚠️  No .env file found in LightRAG directory');
-  console.log('📝 Creating default .env file...');
-  
-  const defaultEnv = `### LightRAG Server Configuration
-HOST=0.0.0.0
-PORT=9621
-WEBUI_TITLE='Convo Companion RAG'
-WEBUI_DESCRIPTION="Farm Vaidya Knowledge Base"
-CORS_ORIGINS=http://localhost:3000,http://localhost:8080,http://localhost:5173
+console.log('📝 Configuring LightRAG environment...');
 
-# Add your OpenAI API key here
-OPENAI_API_KEY=
+const lightragEnvContent = `# Auto-generated from main .env - DO NOT EDIT MANUALLY
+HOST=${process.env.LIGHTRAG_HOST || '0.0.0.0'}
+PORT=${process.env.LIGHTRAG_PORT || '9621'}
+WEBUI_TITLE=${process.env.WEBUI_TITLE || 'Convo Companion RAG'}
+WEBUI_DESCRIPTION=${process.env.WEBUI_DESCRIPTION || 'Farm Vaidya Knowledge Base'}
+CORS_ORIGINS=${process.env.CORS_ORIGINS || 'http://localhost:3000,http://localhost:8080,http://localhost:5173'}
 
-# Optional: Timeout configuration
-# TIMEOUT=150
+# API Keys
+OPENAI_API_KEY=${process.env.OPENAI_API_KEY || ''}
+${process.env.ANTHROPIC_API_KEY ? `ANTHROPIC_API_KEY=${process.env.ANTHROPIC_API_KEY}` : '# ANTHROPIC_API_KEY='}
+${process.env.GEMINI_API_KEY ? `GEMINI_API_KEY=${process.env.GEMINI_API_KEY}` : '# GEMINI_API_KEY='}
+
+# Ollama Configuration
+${process.env.OLLAMA_BASE_URL ? `OLLAMA_BASE_URL=${process.env.OLLAMA_BASE_URL}` : '# OLLAMA_BASE_URL=http://localhost:11434'}
+OLLAMA_EMULATING_MODEL_TAG=${process.env.OLLAMA_EMULATING_MODEL_TAG || 'latest'}
+
+# Optional Configuration
+${process.env.TIMEOUT ? `TIMEOUT=${process.env.TIMEOUT}` : '# TIMEOUT=150'}
+${process.env.LLM_TIMEOUT ? `LLM_TIMEOUT=${process.env.LLM_TIMEOUT}` : '# LLM_TIMEOUT=120'}
+${process.env.EMBEDDING_TIMEOUT ? `EMBEDDING_TIMEOUT=${process.env.EMBEDDING_TIMEOUT}` : '# EMBEDDING_TIMEOUT=120'}
+${process.env.INPUT_DIR ? `INPUT_DIR=${process.env.INPUT_DIR}` : '# INPUT_DIR=./inputs'}
+${process.env.WORKING_DIR ? `WORKING_DIR=${process.env.WORKING_DIR}` : '# WORKING_DIR=./rag_storage'}
 `;
-  
-  try {
-    const fs = await import('fs/promises');
-    await fs.writeFile(lightragEnvPath, defaultEnv, 'utf8');
-    console.log('✅ Created .env file');
-  } catch (error) {
-    console.error('❌ Failed to create .env file:', error.message);
-    console.log('💡 Please create it manually by copying env.example to .env');
-  }
+
+try {
+  const fs = await import('fs/promises');
+  await fs.writeFile(lightragEnvPath, lightragEnvContent, 'utf8');
+  console.log('✅ LightRAG environment configured');
+} catch (error) {
+  console.error('❌ Failed to create LightRAG .env:', error.message);
+  process.exit(1);
 }
 
 const lightragServer = spawn(
@@ -80,7 +87,7 @@ const lightragServer = spawn(
     cwd: lightragPath,
     env: { 
       ...process.env,
-      PYTHONUNBUFFERED: '1',  // Ensure Python output is not buffered
+      PYTHONUNBUFFERED: '1',
     },
     stdio: 'inherit'
   }
