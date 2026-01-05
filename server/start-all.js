@@ -59,6 +59,20 @@ OPENAI_API_KEY=${process.env.OPENAI_API_KEY || ''}
 ${process.env.ANTHROPIC_API_KEY ? `ANTHROPIC_API_KEY=${process.env.ANTHROPIC_API_KEY}` : '# ANTHROPIC_API_KEY='}
 ${process.env.GEMINI_API_KEY ? `GEMINI_API_KEY=${process.env.GEMINI_API_KEY}` : '# GEMINI_API_KEY='}
 
+# LLM Configuration
+LLM_BINDING=${process.env.LLM_BINDING || 'openai'}
+LLM_MODEL=${process.env.LLM_MODEL || 'gpt-4o-mini'}
+${process.env.LLM_BINDING_HOST ? `LLM_BINDING_HOST=${process.env.LLM_BINDING_HOST}` : ''}
+${process.env.LLM_BINDING_API_KEY ? `LLM_BINDING_API_KEY=${process.env.LLM_BINDING_API_KEY}` : ''}
+
+# Embedding Configuration
+EMBEDDING_BINDING=${process.env.EMBEDDING_BINDING || 'openai'}
+EMBEDDING_MODEL=${process.env.EMBEDDING_MODEL || 'text-embedding-3-large'}
+${process.env.EMBEDDING_BINDING_HOST ? `EMBEDDING_BINDING_HOST=${process.env.EMBEDDING_BINDING_HOST}` : ''}
+${process.env.EMBEDDING_BINDING_API_KEY ? `EMBEDDING_BINDING_API_KEY=${process.env.EMBEDDING_BINDING_API_KEY}` : ''}
+EMBEDDING_DIM=${process.env.EMBEDDING_DIM || '3072'}
+EMBEDDING_BATCH_NUM=${process.env.EMBEDDING_BATCH_NUM || '32'}
+
 # Ollama Configuration
 ${process.env.OLLAMA_BASE_URL ? `OLLAMA_BASE_URL=${process.env.OLLAMA_BASE_URL}` : '# OLLAMA_BASE_URL=http://localhost:11434'}
 OLLAMA_EMULATING_MODEL_TAG=${process.env.OLLAMA_EMULATING_MODEL_TAG || 'latest'}
