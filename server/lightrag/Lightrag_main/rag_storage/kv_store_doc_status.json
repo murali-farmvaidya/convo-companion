@@ -1,17 +1,22 @@
 {
   "doc-7e2806502de6b1539268430f9f6665a2": {
-    "status": "failed",
-    "error_msg": "Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download",
+    "status": "processed",
+    "chunks_count": 4,
+    "chunks_list": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566",
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19",
+      "chunk-1a4414bee950e69a7240a65f65711f77",
+      "chunk-2c794a4a58630bfc6de6af352ed42d35"
+    ],
     "content_summary": "FARM VAIDYA\nGenerative AI Powered Conversational Solutions for Agriculture\nStarted during March 2025\nContents\n1 About Us 3\n1.1 Vision . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3\n1.2 Mission . . . . . . . . . . . . . . ...",
     "content_length": 14879,
-    "created_at": "2026-01-05T10:48:57.121819+00:00",
-    "updated_at": "2026-01-05T10:49:00.401542+00:00",
-    "file_path": "Farm_Vaidya (1).pdf",
-    "track_id": "upload_20260105_161854_9c6986be",
+    "created_at": "2026-01-05T11:18:50.738752+00:00",
+    "updated_at": "2026-01-05T11:19:47.257004+00:00",
+    "file_path": "fvd.pdf",
+    "track_id": "upload_20260105_164850_8dc7c48d",
     "metadata": {
-      "processing_start_time": 1767610137,
-      "processing_end_time": 1767610140
-    },
-    "chunks_list": []
+      "processing_start_time": 1767611930,
+      "processing_end_time": 1767611987
+    }
   }
 }

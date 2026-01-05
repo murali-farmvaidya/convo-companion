@@ -1,0 +1,223 @@
+{
+  "Farm Vaidya<SEP>Voice Agent": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19",
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 2,
+    "create_time": 1767611966,
+    "update_time": 1767611966,
+    "_id": "Farm Vaidya<SEP>Voice Agent"
+  },
+  "30,000 Hours<SEP>Rythuvaani": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19"
+    ],
+    "count": 1,
+    "create_time": 1767611966,
+    "update_time": 1767611966,
+    "_id": "30,000 Hours<SEP>Rythuvaani"
+  },
+  "Automatic Speech Recognition (ASR)<SEP>Rythuvaani": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19"
+    ],
+    "count": 1,
+    "create_time": 1767611967,
+    "update_time": 1767611967,
+    "_id": "Automatic Speech Recognition (ASR)<SEP>Rythuvaani"
+  },
+  "Farm Vaidya<SEP>Rythuvaani": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19",
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 2,
+    "create_time": 1767611968,
+    "update_time": 1767611968,
+    "_id": "Farm Vaidya<SEP>Rythuvaani"
+  },
+  "Farm Vaidya<SEP>Gen AI": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19"
+    ],
+    "count": 1,
+    "create_time": 1767611969,
+    "update_time": 1767611969,
+    "_id": "Farm Vaidya<SEP>Gen AI"
+  },
+  "Agri-Input Organizations<SEP>Farm Vaidya": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19"
+    ],
+    "count": 1,
+    "create_time": 1767611970,
+    "update_time": 1767611970,
+    "_id": "Agri-Input Organizations<SEP>Farm Vaidya"
+  },
+  "Farm Vaidya<SEP>Multilingual Interactions": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19"
+    ],
+    "count": 1,
+    "create_time": 1767611971,
+    "update_time": 1767611971,
+    "_id": "Farm Vaidya<SEP>Multilingual Interactions"
+  },
+  "ChatBot<SEP>Farm Vaidya": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19",
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 2,
+    "create_time": 1767611972,
+    "update_time": 1767611972,
+    "_id": "ChatBot<SEP>Farm Vaidya"
+  },
+  "Farm Vaidya<SEP>Generative AI": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 1,
+    "create_time": 1767611972,
+    "update_time": 1767611972,
+    "_id": "Farm Vaidya<SEP>Generative AI"
+  },
+  "Building Voice Agents<SEP>Prototype": {
+    "chunk_ids": [
+      "chunk-2c794a4a58630bfc6de6af352ed42d35"
+    ],
+    "count": 1,
+    "create_time": 1767611972,
+    "update_time": 1767611972,
+    "_id": "Building Voice Agents<SEP>Prototype"
+  },
+  "MVP<SEP>Prototype": {
+    "chunk_ids": [
+      "chunk-2c794a4a58630bfc6de6af352ed42d35"
+    ],
+    "count": 1,
+    "create_time": 1767611974,
+    "update_time": 1767611974,
+    "_id": "MVP<SEP>Prototype"
+  },
+  "Dr Ramadugu Praveen<SEP>Farm Vaidya": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566",
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 2,
+    "create_time": 1767611974,
+    "update_time": 1767611974,
+    "_id": "Dr Ramadugu Praveen<SEP>Farm Vaidya"
+  },
+  "Farm Vaidya<SEP>G Jyotsna": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566",
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 2,
+    "create_time": 1767611975,
+    "update_time": 1767611975,
+    "_id": "Farm Vaidya<SEP>G Jyotsna"
+  },
+  "GITAM University<SEP>Inclusive Technology Business Incubator": {
+    "chunk_ids": [
+      "chunk-2c794a4a58630bfc6de6af352ed42d35"
+    ],
+    "count": 1,
+    "create_time": 1767611975,
+    "update_time": 1767611975,
+    "_id": "GITAM University<SEP>Inclusive Technology Business Incubator"
+  },
+  "Enterprise Grade Solutions<SEP>MVP": {
+    "chunk_ids": [
+      "chunk-2c794a4a58630bfc6de6af352ed42d35"
+    ],
+    "count": 1,
+    "create_time": 1767611976,
+    "update_time": 1767611976,
+    "_id": "Enterprise Grade Solutions<SEP>MVP"
+  },
+  "Farm Vaidya<SEP>Indian Smallholder Farmers": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 1,
+    "create_time": 1767611977,
+    "update_time": 1767611977,
+    "_id": "Farm Vaidya<SEP>Indian Smallholder Farmers"
+  },
+  "IIM Visakhapatnam<SEP>Inclusive Technology Business Incubator": {
+    "chunk_ids": [
+      "chunk-2c794a4a58630bfc6de6af352ed42d35"
+    ],
+    "count": 1,
+    "create_time": 1767611978,
+    "update_time": 1767611978,
+    "_id": "IIM Visakhapatnam<SEP>Inclusive Technology Business Incubator"
+  },
+  "Farm Vaidya<SEP>Telephone Voice Agent": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 1,
+    "create_time": 1767611979,
+    "update_time": 1767611979,
+    "_id": "Farm Vaidya<SEP>Telephone Voice Agent"
+  },
+  "Farm Vaidya<SEP>Website Voice Agent": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 1,
+    "create_time": 1767611980,
+    "update_time": 1767611980,
+    "_id": "Farm Vaidya<SEP>Website Voice Agent"
+  },
+  "Farm Vaidya<SEP>Mobile Application Voice Agent": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 1,
+    "create_time": 1767611981,
+    "update_time": 1767611981,
+    "_id": "Farm Vaidya<SEP>Mobile Application Voice Agent"
+  },
+  "Farm Vaidya<SEP>Farmers": {
+    "chunk_ids": [
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 1,
+    "create_time": 1767611982,
+    "update_time": 1767611982,
+    "_id": "Farm Vaidya<SEP>Farmers"
+  },
+  "Agri-Tech Companies<SEP>Farm Vaidya": {
+    "chunk_ids": [
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 1,
+    "create_time": 1767611983,
+    "update_time": 1767611983,
+    "_id": "Agri-Tech Companies<SEP>Farm Vaidya"
+  },
+  "Farm Vaidya<SEP>International Food Policy Research Institute (IFPRI)": {
+    "chunk_ids": [
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 1,
+    "create_time": 1767611984,
+    "update_time": 1767611984,
+    "_id": "Farm Vaidya<SEP>International Food Policy Research Institute (IFPRI)"
+  },
+  "Farm Vaidya<SEP>Voice and Chat Interactions": {
+    "chunk_ids": [
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 1,
+    "create_time": 1767611985,
+    "update_time": 1767611985,
+    "_id": "Farm Vaidya<SEP>Voice and Chat Interactions"
+  }
+}

@@ -1,0 +1,324 @@
+{
+  "Farm Vaidya": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19",
+      "chunk-f471ff49dc2c427541bf8c97ee81b566",
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 3,
+    "create_time": 1767611954,
+    "update_time": 1767611954,
+    "_id": "Farm Vaidya"
+  },
+  "Gen AI": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19"
+    ],
+    "count": 1,
+    "create_time": 1767611954,
+    "update_time": 1767611954,
+    "_id": "Gen AI"
+  },
+  "Voice Agent": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19",
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 2,
+    "create_time": 1767611954,
+    "update_time": 1767611954,
+    "_id": "Voice Agent"
+  },
+  "Rythuvaani": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19",
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 2,
+    "create_time": 1767611954,
+    "update_time": 1767611954,
+    "_id": "Rythuvaani"
+  },
+  "Automatic Speech Recognition (ASR)": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19"
+    ],
+    "count": 1,
+    "create_time": 1767611954,
+    "update_time": 1767611954,
+    "_id": "Automatic Speech Recognition (ASR)"
+  },
+  "Telugu": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19"
+    ],
+    "count": 1,
+    "create_time": 1767611954,
+    "update_time": 1767611954,
+    "_id": "Telugu"
+  },
+  "30,000 Hours": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19"
+    ],
+    "count": 1,
+    "create_time": 1767611954,
+    "update_time": 1767611954,
+    "_id": "30,000 Hours"
+  },
+  "Agri-Input Organizations": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19"
+    ],
+    "count": 1,
+    "create_time": 1767611955,
+    "update_time": 1767611955,
+    "_id": "Agri-Input Organizations"
+  },
+  "Multilingual Interactions": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19"
+    ],
+    "count": 1,
+    "create_time": 1767611957,
+    "update_time": 1767611957,
+    "_id": "Multilingual Interactions"
+  },
+  "ChatBot": {
+    "chunk_ids": [
+      "chunk-41a8512cee29cb09c7d8da7cb7471f19",
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 2,
+    "create_time": 1767611957,
+    "update_time": 1767611957,
+    "_id": "ChatBot"
+  },
+  "Generative AI": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 1,
+    "create_time": 1767611957,
+    "update_time": 1767611957,
+    "_id": "Generative AI"
+  },
+  "Dr Ramadugu Praveen": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566",
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 2,
+    "create_time": 1767611957,
+    "update_time": 1767611957,
+    "_id": "Dr Ramadugu Praveen"
+  },
+  "G Jyotsna": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566",
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 2,
+    "create_time": 1767611958,
+    "update_time": 1767611958,
+    "_id": "G Jyotsna"
+  },
+  "Indian Smallholder Farmers": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 1,
+    "create_time": 1767611958,
+    "update_time": 1767611958,
+    "_id": "Indian Smallholder Farmers"
+  },
+  "AI Engineers": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 1,
+    "create_time": 1767611958,
+    "update_time": 1767611958,
+    "_id": "AI Engineers"
+  },
+  "Agricultural Extension Officers": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 1,
+    "create_time": 1767611958,
+    "update_time": 1767611958,
+    "_id": "Agricultural Extension Officers"
+  },
+  "Telephone Voice Agent": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 1,
+    "create_time": 1767611958,
+    "update_time": 1767611958,
+    "_id": "Telephone Voice Agent"
+  },
+  "Website Voice Agent": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 1,
+    "create_time": 1767611959,
+    "update_time": 1767611959,
+    "_id": "Website Voice Agent"
+  },
+  "Mobile Application Voice Agent": {
+    "chunk_ids": [
+      "chunk-f471ff49dc2c427541bf8c97ee81b566"
+    ],
+    "count": 1,
+    "create_time": 1767611960,
+    "update_time": 1767611960,
+    "_id": "Mobile Application Voice Agent"
+  },
+  "Building Voice Agents": {
+    "chunk_ids": [
+      "chunk-2c794a4a58630bfc6de6af352ed42d35"
+    ],
+    "count": 1,
+    "create_time": 1767611961,
+    "update_time": 1767611961,
+    "_id": "Building Voice Agents"
+  },
+  "Prototype": {
+    "chunk_ids": [
+      "chunk-2c794a4a58630bfc6de6af352ed42d35"
+    ],
+    "count": 1,
+    "create_time": 1767611961,
+    "update_time": 1767611961,
+    "_id": "Prototype"
+  },
+  "MVP": {
+    "chunk_ids": [
+      "chunk-2c794a4a58630bfc6de6af352ed42d35"
+    ],
+    "count": 1,
+    "create_time": 1767611961,
+    "update_time": 1767611961,
+    "_id": "MVP"
+  },
+  "Enterprise Grade Solutions": {
+    "chunk_ids": [
+      "chunk-2c794a4a58630bfc6de6af352ed42d35"
+    ],
+    "count": 1,
+    "create_time": 1767611961,
+    "update_time": 1767611961,
+    "_id": "Enterprise Grade Solutions"
+  },
+  "Inclusive Technology Business Incubator": {
+    "chunk_ids": [
+      "chunk-2c794a4a58630bfc6de6af352ed42d35"
+    ],
+    "count": 1,
+    "create_time": 1767611961,
+    "update_time": 1767611961,
+    "_id": "Inclusive Technology Business Incubator"
+  },
+  "GITAM University": {
+    "chunk_ids": [
+      "chunk-2c794a4a58630bfc6de6af352ed42d35"
+    ],
+    "count": 1,
+    "create_time": 1767611961,
+    "update_time": 1767611961,
+    "_id": "GITAM University"
+  },
+  "IIM Visakhapatnam": {
+    "chunk_ids": [
+      "chunk-2c794a4a58630bfc6de6af352ed42d35"
+    ],
+    "count": 1,
+    "create_time": 1767611962,
+    "update_time": 1767611962,
+    "_id": "IIM Visakhapatnam"
+  },
+  "Conversational Agricultural Audio": {
+    "chunk_ids": [
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 1,
+    "create_time": 1767611963,
+    "update_time": 1767611963,
+    "_id": "Conversational Agricultural Audio"
+  },
+  "Andhra Pradesh": {
+    "chunk_ids": [
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 1,
+    "create_time": 1767611963,
+    "update_time": 1767611963,
+    "_id": "Andhra Pradesh"
+  },
+  "Telangana": {
+    "chunk_ids": [
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 1,
+    "create_time": 1767611964,
+    "update_time": 1767611964,
+    "_id": "Telangana"
+  },
+  "Farmers": {
+    "chunk_ids": [
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 1,
+    "create_time": 1767611964,
+    "update_time": 1767611964,
+    "_id": "Farmers"
+  },
+  "Agri-Tech Companies": {
+    "chunk_ids": [
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 1,
+    "create_time": 1767611964,
+    "update_time": 1767611964,
+    "_id": "Agri-Tech Companies"
+  },
+  "Voice Agents": {
+    "chunk_ids": [
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 1,
+    "create_time": 1767611964,
+    "update_time": 1767611964,
+    "_id": "Voice Agents"
+  },
+  "International Food Policy Research Institute (IFPRI)": {
+    "chunk_ids": [
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 1,
+    "create_time": 1767611965,
+    "update_time": 1767611965,
+    "_id": "International Food Policy Research Institute (IFPRI)"
+  },
+  "Generative AI Voice Technology": {
+    "chunk_ids": [
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 1,
+    "create_time": 1767611965,
+    "update_time": 1767611965,
+    "_id": "Generative AI Voice Technology"
+  },
+  "Voice and Chat Interactions": {
+    "chunk_ids": [
+      "chunk-1a4414bee950e69a7240a65f65711f77"
+    ],
+    "count": 1,
+    "create_time": 1767611965,
+    "update_time": 1767611965,
+    "_id": "Voice and Chat Interactions"
+  }
+}

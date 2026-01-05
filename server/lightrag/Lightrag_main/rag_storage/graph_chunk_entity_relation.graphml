@@ -1,0 +1,547 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d13" for="edge" attr.name="truncate" attr.type="string"/>
+<key id="d12" for="edge" attr.name="created_at" attr.type="long"/>
+<key id="d11" for="edge" attr.name="file_path" attr.type="string"/>
+<key id="d10" for="edge" attr.name="source_id" attr.type="string"/>
+<key id="d9" for="edge" attr.name="keywords" attr.type="string"/>
+<key id="d8" for="edge" attr.name="description" attr.type="string"/>
+<key id="d7" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d6" for="node" attr.name="truncate" attr.type="string"/>
+<key id="d5" for="node" attr.name="created_at" attr.type="long"/>
+<key id="d4" for="node" attr.name="file_path" attr.type="string"/>
+<key id="d3" for="node" attr.name="source_id" attr.type="string"/>
+<key id="d2" for="node" attr.name="description" attr.type="string"/>
+<key id="d1" for="node" attr.name="entity_type" attr.type="string"/>
+<key id="d0" for="node" attr.name="entity_id" attr.type="string"/>
+<graph edgedefault="undirected"><node id="Farm Vaidya">
+  <data key="d0">Farm Vaidya</data>
+  <data key="d1">organization</data>
+  <data key="d2">Farm Vaidya is an organization developing agricultural solutions powered by Gen AI technology, focused on improving access for smallholder farmers in India.&lt;SEP&gt;Farm Vaidya is an organization that provides Generative AI-powered conversational solutions aimed at improving agriculture.&lt;SEP&gt;Farm Vaidya is an organization founded to utilize Generative AI-driven voice technology for providing agricultural knowledge to farmers.</data>
+  <data key="d3">chunk-41a8512cee29cb09c7d8da7cb7471f19&lt;SEP&gt;chunk-f471ff49dc2c427541bf8c97ee81b566&lt;SEP&gt;chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611954</data>
+  <data key="d6"></data>
+</node>
+<node id="Gen AI">
+  <data key="d0">Gen AI</data>
+  <data key="d1">concept</data>
+  <data key="d2">Gen AI refers to advanced artificial intelligence technologies that revolutionize agricultural intelligence by providing innovative solutions.</data>
+  <data key="d3">chunk-41a8512cee29cb09c7d8da7cb7471f19</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611954</data>
+  <data key="d6"></data>
+</node>
+<node id="Voice Agent">
+  <data key="d0">Voice Agent</data>
+  <data key="d1">method</data>
+  <data key="d2">The Voice Agent is an AI-powered conversational tool that enables agricultural organizations to provide support in regional languages.&lt;SEP&gt;The Voice Agent is a type of conversational AI developed by Farm Vaidya to provide personalized agricultural solutions.</data>
+  <data key="d3">chunk-41a8512cee29cb09c7d8da7cb7471f19&lt;SEP&gt;chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611954</data>
+  <data key="d6"></data>
+</node>
+<node id="Rythuvaani">
+  <data key="d0">Rythuvaani</data>
+  <data key="d1">project</data>
+  <data key="d2">Rythuvaani is a project focused on creating a Telugu agriculture domain-specific dataset for building a Speech-to-Text (STT) system.&lt;SEP&gt;Rythuvaani is a project under Farm Vaidya focusing on agricultural voice solutions.</data>
+  <data key="d3">chunk-41a8512cee29cb09c7d8da7cb7471f19&lt;SEP&gt;chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611955</data>
+  <data key="d6"></data>
+</node>
+<node id="Automatic Speech Recognition (ASR)">
+  <data key="d0">Automatic Speech Recognition (ASR)</data>
+  <data key="d1">concept</data>
+  <data key="d2">Automatic Speech Recognition (ASR) refers to technology for converting spoken language into text, specifically tailored for agricultural terminology in India.</data>
+  <data key="d3">chunk-41a8512cee29cb09c7d8da7cb7471f19</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611955</data>
+  <data key="d6"></data>
+</node>
+<node id="Telugu">
+  <data key="d0">Telugu</data>
+  <data key="d1">language</data>
+  <data key="d2">Telugu is one of the regional languages employed in Farm Vaidya’s solutions, particularly in developing voice agents and datasets.</data>
+  <data key="d3">chunk-41a8512cee29cb09c7d8da7cb7471f19</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611955</data>
+  <data key="d6"></data>
+</node>
+<node id="30,000 Hours">
+  <data key="d0">30,000 Hours</data>
+  <data key="d1">data</data>
+  <data key="d2">30,000 hours of conversational agricultural audio is being collected for the development of an advanced STT system that captures diverse dialects.</data>
+  <data key="d3">chunk-41a8512cee29cb09c7d8da7cb7471f19</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611955</data>
+  <data key="d6"></data>
+</node>
+<node id="Agri-Input Organizations">
+  <data key="d0">Agri-Input Organizations</data>
+  <data key="d1">organization</data>
+  <data key="d2">Agri-Input Organizations refer to companies that provide agricultural inputs and support services, working with Farm Vaidya to enhance farmer accessibility to information.</data>
+  <data key="d3">chunk-41a8512cee29cb09c7d8da7cb7471f19</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611955</data>
+  <data key="d6"></data>
+</node>
+<node id="Multilingual Interactions">
+  <data key="d0">Multilingual Interactions</data>
+  <data key="d1">concept</data>
+  <data key="d2">Multilingual Interactions involve communication in multiple languages, facilitated by Farm Vaidya's technologies to support farmers across different regions in India.</data>
+  <data key="d3">chunk-41a8512cee29cb09c7d8da7cb7471f19</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611957</data>
+  <data key="d6"></data>
+</node>
+<node id="ChatBot">
+  <data key="d0">ChatBot</data>
+  <data key="d1">method</data>
+  <data key="d2">ChatBot is an AI-powered tool designed for structured text-based engagement to answer product-related queries and assist users in local languages across digital platforms.&lt;SEP&gt;The ChatBot is part of Farm Vaidya's offerings, designed to assist users with agricultural queries through conversational interactions.</data>
+  <data key="d3">chunk-41a8512cee29cb09c7d8da7cb7471f19&lt;SEP&gt;chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611957</data>
+  <data key="d6"></data>
+</node>
+<node id="Generative AI">
+  <data key="d0">Generative AI</data>
+  <data key="d1">concept</data>
+  <data key="d2">Generative AI refers to the technology used by Farm Vaidya for creating conversational voice agents and agricultural solutions.</data>
+  <data key="d3">chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611957</data>
+  <data key="d6"></data>
+</node>
+<node id="Dr Ramadugu Praveen">
+  <data key="d0">Dr Ramadugu Praveen</data>
+  <data key="d1">person</data>
+  <data key="d2">Dr Ramadugu Praveen is one of the founders of Farm Vaidya involved in developing agricultural solutions.&lt;SEP&gt;Dr Ramadugu Praveen is the Founder and CEO of Farm Vaidya, holding a PhD in Horticulture and extensive experience in various agricultural roles.</data>
+  <data key="d3">chunk-f471ff49dc2c427541bf8c97ee81b566&lt;SEP&gt;chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611957</data>
+  <data key="d6"></data>
+</node>
+<node id="G Jyotsna">
+  <data key="d0">G Jyotsna</data>
+  <data key="d1">person</data>
+  <data key="d2">G Jyotsna is one of the founders of Farm Vaidya and contributes to the organization’s mission and vision.&lt;SEP&gt;G Jyotsna is the Co-Founder and COO of Farm Vaidya, equipped with an MBA in Agri-Business and over 15 years of professional experience in agriculture.</data>
+  <data key="d3">chunk-f471ff49dc2c427541bf8c97ee81b566&lt;SEP&gt;chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611958</data>
+  <data key="d6"></data>
+</node>
+<node id="Indian Smallholder Farmers">
+  <data key="d0">Indian Smallholder Farmers</data>
+  <data key="d1">group</data>
+  <data key="d2">Indian Smallholder Farmers are the target audience that Farm Vaidya aims to empower through Generative AI technology.</data>
+  <data key="d3">chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611958</data>
+  <data key="d6"></data>
+</node>
+<node id="AI Engineers">
+  <data key="d0">AI Engineers</data>
+  <data key="d1">group</data>
+  <data key="d2">AI Engineers are part of the team at Farm Vaidya working on developing and implementing Generative AI solutions.</data>
+  <data key="d3">chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611958</data>
+  <data key="d6"></data>
+</node>
+<node id="Agricultural Extension Officers">
+  <data key="d0">Agricultural Extension Officers</data>
+  <data key="d1">group</data>
+  <data key="d2">Agricultural Extension Officers are experienced professionals contributing to Farm Vaidya’s mission of bridging knowledge gaps in agriculture.</data>
+  <data key="d3">chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611958</data>
+  <data key="d6"></data>
+</node>
+<node id="Telephone Voice Agent">
+  <data key="d0">Telephone Voice Agent</data>
+  <data key="d1">concept</data>
+  <data key="d2">The Telephone Voice Agent is a specific application of Farm Vaidya's conversational AI solutions targeting telephonic agricultural assistance.</data>
+  <data key="d3">chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611958</data>
+  <data key="d6"></data>
+</node>
+<node id="Website Voice Agent">
+  <data key="d0">Website Voice Agent</data>
+  <data key="d1">concept</data>
+  <data key="d2">The Website Voice Agent refers to the online platform version of Farm Vaidya's voice solutions aimed at enhancing user interaction.</data>
+  <data key="d3">chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611959</data>
+  <data key="d6"></data>
+</node>
+<node id="Mobile Application Voice Agent">
+  <data key="d0">Mobile Application Voice Agent</data>
+  <data key="d1">concept</data>
+  <data key="d2">The Mobile Application Voice Agent is an app-based solution providing agricultural assistance through conversational AI on mobile devices.</data>
+  <data key="d3">chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611960</data>
+  <data key="d6"></data>
+</node>
+<node id="Building Voice Agents">
+  <data key="d0">Building Voice Agents</data>
+  <data key="d1">concept</data>
+  <data key="d2">Building Voice Agents refers to the development process involving the creation and validation of voice agents for various applications.</data>
+  <data key="d3">chunk-2c794a4a58630bfc6de6af352ed42d35</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611961</data>
+  <data key="d6"></data>
+</node>
+<node id="Prototype">
+  <data key="d0">Prototype</data>
+  <data key="d1">method</data>
+  <data key="d2">The Prototype is an initial model that allows for quick validation of ideas and use cases within 24 hours.</data>
+  <data key="d3">chunk-2c794a4a58630bfc6de6af352ed42d35</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611961</data>
+  <data key="d6"></data>
+</node>
+<node id="MVP">
+  <data key="d0">MVP</data>
+  <data key="d1">method</data>
+  <data key="d2">The MVP (Minimum Viable Product) is delivered within 72 hours of prototype validation, enabling real-world testing and early adoption.</data>
+  <data key="d3">chunk-2c794a4a58630bfc6de6af352ed42d35</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611961</data>
+  <data key="d6"></data>
+</node>
+<node id="Enterprise Grade Solutions">
+  <data key="d0">Enterprise Grade Solutions</data>
+  <data key="d1">method</data>
+  <data key="d2">Enterprise Grade Solutions refers to more advanced solutions that are delivered within 7 working days of MVP validation.</data>
+  <data key="d3">chunk-2c794a4a58630bfc6de6af352ed42d35</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611961</data>
+  <data key="d6"></data>
+</node>
+<node id="Inclusive Technology Business Incubator">
+  <data key="d0">Inclusive Technology Business Incubator</data>
+  <data key="d1">organization</data>
+  <data key="d2">The Inclusive Technology Business Incubator (ITBI) is an organization focused on fostering inclusive technology innovations at GITAM University in Visakhapatnam.</data>
+  <data key="d3">chunk-2c794a4a58630bfc6de6af352ed42d35</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611961</data>
+  <data key="d6"></data>
+</node>
+<node id="GITAM University">
+  <data key="d0">GITAM University</data>
+  <data key="d1">organization</data>
+  <data key="d2">GITAM University is an educational institution located in Visakhapatnam, associated with the Inclusive Technology Business Incubator.</data>
+  <data key="d3">chunk-2c794a4a58630bfc6de6af352ed42d35</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611961</data>
+  <data key="d6"></data>
+</node>
+<node id="IIM Visakhapatnam">
+  <data key="d0">IIM Visakhapatnam</data>
+  <data key="d1">organization</data>
+  <data key="d2">IIM Visakhapatnam is another educational institution mentioned in the context of technology and incubation initiatives.</data>
+  <data key="d3">chunk-2c794a4a58630bfc6de6af352ed42d35</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611962</data>
+  <data key="d6"></data>
+</node>
+<node id="Conversational Agricultural Audio">
+  <data key="d0">Conversational Agricultural Audio</data>
+  <data key="d1">data</data>
+  <data key="d2">The Conversational Agricultural Audio is a dataset comprising 30,000 hours of agricultural dialogue collected from 59 districts to capture local dialects and speech variations.</data>
+  <data key="d3">chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611963</data>
+  <data key="d6"></data>
+</node>
+<node id="Andhra Pradesh">
+  <data key="d0">Andhra Pradesh</data>
+  <data key="d1">location</data>
+  <data key="d2">Andhra Pradesh is a state in India where the services provided by Farm Vaidya will directly empower farmers.</data>
+  <data key="d3">chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611963</data>
+  <data key="d6"></data>
+</node>
+<node id="Telangana">
+  <data key="d0">Telangana</data>
+  <data key="d1">location</data>
+  <data key="d2">Telangana is another state in India benefiting from the agricultural solutions offered by Farm Vaidya.</data>
+  <data key="d3">chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611964</data>
+  <data key="d6"></data>
+</node>
+<node id="Farmers">
+  <data key="d0">Farmers</data>
+  <data key="d1">person</data>
+  <data key="d2">Farmers are the primary beneficiaries of the solutions offered by Farm Vaidya, utilizing conversational voice agents for farming-related inquiries.</data>
+  <data key="d3">chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611964</data>
+  <data key="d6"></data>
+</node>
+<node id="Agri-Tech Companies">
+  <data key="d0">Agri-Tech Companies</data>
+  <data key="d1">organization</data>
+  <data key="d2">Agri-Tech Companies are organizations that engage with Farm Vaidya to provide voice solutions to farmers and enhance agricultural services.</data>
+  <data key="d3">chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611964</data>
+  <data key="d6"></data>
+</node>
+<node id="Voice Agents">
+  <data key="d0">Voice Agents</data>
+  <data key="d1">content</data>
+  <data key="d2">Voice Agents are AI-driven systems developed by Farm Vaidya to assist farmers in obtaining agricultural information and advice through voice interactions.</data>
+  <data key="d3">chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611964</data>
+  <data key="d6"></data>
+</node>
+<node id="International Food Policy Research Institute (IFPRI)">
+  <data key="d0">International Food Policy Research Institute (IFPRI)</data>
+  <data key="d1">organization</data>
+  <data key="d2">The International Food Policy Research Institute (IFPRI) provides strategic advice for Farm Vaidya on Generative AI solutions for global agriculture.</data>
+  <data key="d3">chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611965</data>
+  <data key="d6"></data>
+</node>
+<node id="Generative AI Voice Technology">
+  <data key="d0">Generative AI Voice Technology</data>
+  <data key="d1">concept</data>
+  <data key="d2">Generative AI Voice Technology refers to the AI-driven systems developed by Farm Vaidya to facilitate agricultural communication and knowledge dissemination.</data>
+  <data key="d3">chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611965</data>
+  <data key="d6"></data>
+</node>
+<node id="Voice and Chat Interactions">
+  <data key="d0">Voice and Chat Interactions</data>
+  <data key="d1">data</data>
+  <data key="d2">Voice and Chat Interactions provide built-in analytics that offer insights into customer queries and product demand within the agricultural ecosystem.</data>
+  <data key="d3">chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d4">fvd.pdf</data>
+  <data key="d5">1767611965</data>
+  <data key="d6"></data>
+</node>
+<edge source="Farm Vaidya" target="Voice Agent">
+  <data key="d7">2.0</data>
+  <data key="d8">Farm Vaidya employs the Voice Agent method to facilitate instant agricultural support for farmers in regional languages.&lt;SEP&gt;Farm Vaidya develops the Voice Agent to provide real-time agricultural solutions to users.</data>
+  <data key="d9">AI application,agricultural support,product development,technology implementation</data>
+  <data key="d10">chunk-41a8512cee29cb09c7d8da7cb7471f19&lt;SEP&gt;chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611966</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="Rythuvaani">
+  <data key="d7">2.0</data>
+  <data key="d8">Farm Vaidya initiates the Rythuvaani project to develop a specialized dataset focused on Telugu agricultural terminology for STT systems.&lt;SEP&gt;Farm Vaidya is associated with the Rythuvaani project aimed at developing voice solutions for agriculture.</data>
+  <data key="d9">dataset creation,project association,project initiative,solution development</data>
+  <data key="d10">chunk-41a8512cee29cb09c7d8da7cb7471f19&lt;SEP&gt;chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611968</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="Gen AI">
+  <data key="d7">1.0</data>
+  <data key="d8">Farm Vaidya's solutions are powered by Gen AI, which enables innovations in agricultural practices and farmer assistance.</data>
+  <data key="d9">innovative solutions,technological foundation</data>
+  <data key="d10">chunk-41a8512cee29cb09c7d8da7cb7471f19</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611969</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="Agri-Input Organizations">
+  <data key="d7">1.0</data>
+  <data key="d8">Farm Vaidya collaborates with Agri-Input Organizations to ensure accurate information and support for farmers through voice agents.</data>
+  <data key="d9">agricultural support,collaboration</data>
+  <data key="d10">chunk-41a8512cee29cb09c7d8da7cb7471f19</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611970</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="Multilingual Interactions">
+  <data key="d7">1.0</data>
+  <data key="d8">Farm Vaidya's use of Multilingual Interactions aims to provide inclusive communication for farmers in regional languages.</data>
+  <data key="d9">inclusive communication,regional accessibility</data>
+  <data key="d10">chunk-41a8512cee29cb09c7d8da7cb7471f19</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611971</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="ChatBot">
+  <data key="d7">2.0</data>
+  <data key="d8">Farm Vaidya is developing a ChatBot to enhance digital engagement by providing answers to product-related questions in local languages.&lt;SEP&gt;Farm Vaidya creates the ChatBot to facilitate user interactions through conversational technology in agriculture.</data>
+  <data key="d9">customer support,digital engagement,product development,user interaction</data>
+  <data key="d10">chunk-41a8512cee29cb09c7d8da7cb7471f19&lt;SEP&gt;chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611972</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="Generative AI">
+  <data key="d7">1.0</data>
+  <data key="d8">Farm Vaidya uses Generative AI to create conversational solutions that improve agricultural practices.</data>
+  <data key="d9">agricultural improvement,technology use</data>
+  <data key="d10">chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611972</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="Dr Ramadugu Praveen">
+  <data key="d7">2.0</data>
+  <data key="d8">Dr Ramadugu Praveen, as a founder, plays a key role in developing Farm Vaidya's mission and solutions.&lt;SEP&gt;Dr Ramadugu Praveen is the founder and CEO of Farm Vaidya, leading the organization in its mission to empower farmers.</data>
+  <data key="d9">founder,founder role,leadership,organizational development</data>
+  <data key="d10">chunk-f471ff49dc2c427541bf8c97ee81b566&lt;SEP&gt;chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611974</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="G Jyotsna">
+  <data key="d7">2.0</data>
+  <data key="d8">G Jyotsna contributes as a founder to the direction and development of Farm Vaidya.&lt;SEP&gt;G Jyotsna serves as the Co-Founder and COO of Farm Vaidya, contributing to its strategic direction.</data>
+  <data key="d9">co-founder,founder role,leadership,organizational direction</data>
+  <data key="d10">chunk-f471ff49dc2c427541bf8c97ee81b566&lt;SEP&gt;chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611975</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="Indian Smallholder Farmers">
+  <data key="d7">1.0</data>
+  <data key="d8">Farm Vaidya aims to empower Indian Smallholder Farmers using Generative AI technology.</data>
+  <data key="d9">empowerment,target audience</data>
+  <data key="d10">chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611977</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="Telephone Voice Agent">
+  <data key="d7">1.0</data>
+  <data key="d8">Farm Vaidya launches the Telephone Voice Agent to aid farmers via telephonic conversations.</data>
+  <data key="d9">product application,telephonic support</data>
+  <data key="d10">chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611979</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="Website Voice Agent">
+  <data key="d7">1.0</data>
+  <data key="d8">Farm Vaidya implements the Website Voice Agent to enhance accessibility for users seeking agricultural information online.</data>
+  <data key="d9">online support,product application</data>
+  <data key="d10">chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611980</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="Mobile Application Voice Agent">
+  <data key="d7">1.0</data>
+  <data key="d8">Farm Vaidya introduces the Mobile Application Voice Agent to offer personalized agricultural advice on mobile devices.</data>
+  <data key="d9">mobile support,product application</data>
+  <data key="d10">chunk-f471ff49dc2c427541bf8c97ee81b566</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611981</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="Farmers">
+  <data key="d7">1.0</data>
+  <data key="d8">Farm Vaidya provides voice agents that empower farmers by offering agricultural information and support.</data>
+  <data key="d9">empowerment,service provision</data>
+  <data key="d10">chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611982</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="Agri-Tech Companies">
+  <data key="d7">1.0</data>
+  <data key="d8">Agri-Tech Companies collaborate with Farm Vaidya to deliver AI-driven support to farmers through voice agents.</data>
+  <data key="d9">collaboration,technology interface</data>
+  <data key="d10">chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611983</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="International Food Policy Research Institute (IFPRI)">
+  <data key="d7">1.0</data>
+  <data key="d8">Farm Vaidya partners with the International Food Policy Research Institute (IFPRI) to enhance AI solutions for agriculture.</data>
+  <data key="d9">agricultural innovation,strategic partnership</data>
+  <data key="d10">chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611984</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Farm Vaidya" target="Voice and Chat Interactions">
+  <data key="d7">1.0</data>
+  <data key="d8">Farm Vaidya utilizes Voice and Chat Interactions analytics to enhance customer support and optimize engagement.</data>
+  <data key="d9">customer insight,data analytics</data>
+  <data key="d10">chunk-1a4414bee950e69a7240a65f65711f77</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611985</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Rythuvaani" target="30,000 Hours">
+  <data key="d7">1.0</data>
+  <data key="d8">Rythuvaani involves the collection of 30,000 hours of audio to create a comprehensive agricultural dataset.</data>
+  <data key="d9">data collection,dataset enhancement</data>
+  <data key="d10">chunk-41a8512cee29cb09c7d8da7cb7471f19</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611966</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Rythuvaani" target="Automatic Speech Recognition (ASR)">
+  <data key="d7">1.0</data>
+  <data key="d8">Rythuvaani supports the development of ASR technology by utilizing a Telugu agriculture-specific dataset.</data>
+  <data key="d9">agricultural relevance,technology development</data>
+  <data key="d10">chunk-41a8512cee29cb09c7d8da7cb7471f19</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611967</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Building Voice Agents" target="Prototype">
+  <data key="d7">1.0</data>
+  <data key="d8">The Prototype is a key step in the development process for Building Voice Agents, allowing for quick idea validation.</data>
+  <data key="d9">development process,validation</data>
+  <data key="d10">chunk-2c794a4a58630bfc6de6af352ed42d35</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611972</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Prototype" target="MVP">
+  <data key="d7">1.0</data>
+  <data key="d8">The MVP follows the Prototype stage and is crucial for testing and early adoption.</data>
+  <data key="d9">product development,validation</data>
+  <data key="d10">chunk-2c794a4a58630bfc6de6af352ed42d35</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611974</data>
+  <data key="d13"></data>
+</edge>
+<edge source="MVP" target="Enterprise Grade Solutions">
+  <data key="d7">1.0</data>
+  <data key="d8">Enterprise Grade Solutions are developed after MVP validation to ensure robustness for enterprises.</data>
+  <data key="d9">advanced development,implementation</data>
+  <data key="d10">chunk-2c794a4a58630bfc6de6af352ed42d35</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611976</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Inclusive Technology Business Incubator" target="GITAM University">
+  <data key="d7">1.0</data>
+  <data key="d8">The Inclusive Technology Business Incubator operates in collaboration with GITAM University, focusing on inclusive technology.</data>
+  <data key="d9">collaboration,technology incubation</data>
+  <data key="d10">chunk-2c794a4a58630bfc6de6af352ed42d35</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611975</data>
+  <data key="d13"></data>
+</edge>
+<edge source="Inclusive Technology Business Incubator" target="IIM Visakhapatnam">
+  <data key="d7">1.0</data>
+  <data key="d8">IIM Visakhapatnam is associated with the Inclusive Technology Business Incubator for fostering educational initiatives.</data>
+  <data key="d9">collaboration,educational initiatives</data>
+  <data key="d10">chunk-2c794a4a58630bfc6de6af352ed42d35</data>
+  <data key="d11">fvd.pdf</data>
+  <data key="d12">1767611978</data>
+  <data key="d13"></data>
+</edge>
+</graph></graphml>
