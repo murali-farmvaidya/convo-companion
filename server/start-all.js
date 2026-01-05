@@ -88,6 +88,8 @@ const lightragServer = spawn(
     env: { 
       ...process.env,
       PYTHONUNBUFFERED: '1',
+      HOST: process.env.LIGHTRAG_HOST || '0.0.0.0',
+      PORT: process.env.LIGHTRAG_PORT || '9621',
     },
     stdio: 'inherit'
   }
