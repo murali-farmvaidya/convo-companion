@@ -17,6 +17,8 @@ app.use(cors({
     const allowedOrigins = [
       'http://localhost:5173',
       'http://localhost:3000',
+      'http://localhost:8080',  // Vite dev server or LightRAG WebUI
+      'http://localhost:8020',  // LightRAG API server
       /^https:\/\/convo-companion.*\.onrender\.com$/
     ];
     
@@ -31,6 +33,7 @@ app.use(cors({
     if (isAllowed) {
       callback(null, true);
     } else {
+      console.log(`⚠️  CORS blocked origin: ${origin}`);
       callback(new Error('Not allowed by CORS'));
     }
   },
@@ -276,9 +279,33 @@ app.post('/api/sessions/migrate-names', async (req, res) => {
   }
 });
 
+// LightRAG Proxy - Forward requests to LightRAG server
+app.post('/api/lightrag/query', async (req, res) => {
+  try {
+    const lightragUrl = process.env.LIGHTRAG_API_URL || 'http://localhost:9621';
+    const response = await fetch(`${lightragUrl}/query`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(req.body)
+    });
+
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error('LightRAG proxy error:', error);
+    res.status(500).json({ error: 'Failed to query LightRAG', details: error.message });
+  }
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', mongodb: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected' });
+  res.json({ 
+    status: 'ok', 
+    mongodb: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
+    lightrag: process.env.LIGHTRAG_API_URL || 'http://localhost:9621'
+  });
 });
 
 // 404 handler for undefined routes
