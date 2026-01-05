@@ -19,6 +19,8 @@ app.use(cors({
       'http://localhost:3000',
       'http://localhost:8080',  // Vite dev server or LightRAG WebUI
       'http://localhost:8020',  // LightRAG API server
+      'https://convo-companion-uiii.onrender.com',  // Production frontend
+      'https://convo-companion.onrender.com',        // Production backend (self)
       /^https:\/\/convo-companion.*\.onrender\.com$/
     ];
     
