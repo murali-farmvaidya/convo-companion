@@ -1,3 +1,7 @@
+# ⚠️ SECURITY WARNING: Replace placeholder values with your actual credentials
+# DO NOT commit this file with real credentials to a public repository!
+# It's recommended to set environment variables directly in Render dashboard instead.
+
 services:
   - type: web
     name: bhuvi-chatbot-ui
@@ -7,9 +11,9 @@ services:
     startCommand: npm run preview -- --host
     envVars:
       - key: VITE_API_BASE_URL
-        value: https://convo-companion.onrender.com/api
+        value: https://your-backend-url.onrender.com/api
       - key: VITE_LIGHTRAG_API_URL
-        value: https://overhumane-sloppily-su.ngrok-free.dev
+        value: https://your-lightrag-url-or-backend-proxy
   
   - type: web
     name: bhuvi-chatbot
@@ -19,6 +23,8 @@ services:
     startCommand: cd server && node server.js
     envVars:
       - key: MONGODB_URI
-        value: mongodb+srv://murali_db_user:farmvaidya@cluster0.hgzl3np.mongodb.net/bhuvi-chatbot
+        value: your-mongodb-connection-string-here
       - key: PORT
         value: "3000"
+      - key: OPENAI_API_KEY
+        value: your-openai-api-key-here

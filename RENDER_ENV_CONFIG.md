@@ -5,7 +5,7 @@
 ### Environment Variables to Set:
 ```bash
 # MongoDB Connection
-MONGODB_URI=mongodb+srv://murali_db_user:farmvaidya@cluster0.hgzl3np.mongodb.net/convo-companion
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/bhuvi-chatbot
 
 # Server Configuration
 PORT=3000

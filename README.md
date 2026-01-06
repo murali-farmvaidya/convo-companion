@@ -327,10 +327,37 @@ cd ..
 
 ## ⚙️ Environment Configuration
 
+### 🔒 Security Warning
+
+**CRITICAL: Never commit your `.env` files to Git!**
+
+Your `.env` files contain sensitive information:
+- Database credentials (MongoDB connection string with username/password)
+- API keys (OpenAI, etc.)
+- Secret tokens
+
+**Best Practices:**
+- ✅ `.env` files are already in `.gitignore` - keep them there!
+- ✅ Never share your `.env` files publicly
+- ✅ Use environment variables on deployment platforms (Render, Vercel, etc.)
+- ✅ Rotate your API keys immediately if they are accidentally exposed
+- ✅ Use different credentials for development and production
+
+---
+
 ### Step 1: Create Environment Files
 
 Create a `.env` file in the **root directory** (not in the server folder):
 
+```bash
+# Windows (PowerShell)
+Copy-Item .env.example .env
+
+# Linux/Mac
+cp .env.example .env
+```
+
+Or create it manually:
 ```bash
 # Windows (PowerShell)
 New-Item .env
@@ -381,6 +408,15 @@ Create a `.env` file in the **server** directory if you need server-specific var
 
 ```bash
 cd server
+
+# Copy from example file
+# Windows
+Copy-Item .env.example .env
+
+# Linux/Mac
+cp .env.example .env
+
+# Or create manually
 # Windows
 New-Item .env
 
