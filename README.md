@@ -399,7 +399,45 @@ PORT=3000
 
 # Node Environment
 NODE_ENV=development
+
+# LightRAG Configuration
+LIGHTRAG_HOST=0.0.0.0
+LIGHTRAG_PORT=9621
+LIGHTRAG_API_URL=http://localhost:9621
+
+# LightRAG WebUI Branding
+WEBUI_TITLE=Bhuvi Chatbot RAG
+WEBUI_DESCRIPTION=Bhuvi Agricultural Knowledge Base
+
+# CORS - Allow these origins to access the API
+CORS_ORIGINS=http://localhost:3000,http://localhost:8080,http://localhost:5173
+
+# OpenAI API Configuration (Required for LightRAG)
+OPENAI_API_KEY=your-openai-api-key-here
+
+# LLM Configuration
+LLM_BINDING=openai
+LLM_MODEL=gpt-4o-mini
+LLM_BINDING_HOST=https://api.openai.com/v1
+LLM_BINDING_API_KEY=your-openai-api-key-here
+
+# Embedding Configuration
+EMBEDDING_BINDING=openai
+EMBEDDING_MODEL=text-embedding-3-large
+EMBEDDING_BINDING_HOST=https://api.openai.com/v1
+EMBEDDING_BINDING_API_KEY=your-openai-api-key-here
+EMBEDDING_DIM=3072
+EMBEDDING_BATCH_NUM=32
+
+# Ollama Configuration (Optional - if using Ollama instead of OpenAI)
+# OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_EMULATING_MODEL_TAG=latest
 ```
+
+**Important Notes:**
+- Replace `your-openai-api-key-here` with your actual OpenAI API key
+- Get your OpenAI API key from: https://platform.openai.com/api-keys
+- If using Ollama instead of OpenAI, uncomment the Ollama configuration and change `LLM_BINDING` to `ollama`
 
 ### Step 5: Set Up LightRAG
 
