@@ -4,7 +4,7 @@
 
 set -e  # Exit on any error
 
-echo "🚀 Building Convo Companion for Production..."
+echo "🚀 Building Bhuvi Chatbot for Production..."
 
 # 1. Install Node.js dependencies
 echo ""
@@ -22,7 +22,7 @@ if [ ! -f ".env" ]; then
     cat > .env << 'EOF'
 HOST=0.0.0.0
 PORT=9621
-WEBUI_TITLE='Convo Companion RAG'
+WEBUI_TITLE='Bhuvi Chatbot RAG'
 CORS_ORIGINS=http://localhost:3000,http://localhost:8080
 OPENAI_API_KEY=${OPENAI_API_KEY}
 EOF

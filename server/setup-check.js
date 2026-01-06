@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 const isWindows = platform() === 'win32';
 const lightragPath = path.join(__dirname, 'lightrag', 'Lightrag_main');
 
-console.log('🔍 Checking Convo Companion Setup...\n');
+console.log('🔍 Checking Bhuvi Chatbot Setup...\n');
 
 let hasErrors = false;
 

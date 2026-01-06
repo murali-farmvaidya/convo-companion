@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: convo-companion-ui
+    name: bhuvi-chatbot-ui
     env: node
     plan: free
     buildCommand: npm install && npm run build
@@ -12,13 +12,13 @@ services:
         value: https://overhumane-sloppily-su.ngrok-free.dev
   
   - type: web
-    name: convo-companion
+    name: bhuvi-chatbot
     env: node
     plan: free
     buildCommand: cd server && npm install
     startCommand: cd server && node server.js
     envVars:
       - key: MONGODB_URI
-        value: mongodb+srv://murali_db_user:farmvaidya@cluster0.hgzl3np.mongodb.net/convo-companion
+        value: mongodb+srv://murali_db_user:farmvaidya@cluster0.hgzl3np.mongodb.net/bhuvi-chatbot
       - key: PORT
         value: "3000"

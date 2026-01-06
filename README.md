@@ -1,6 +1,6 @@
-# Convo Companion
+# Bhuvi Chatbot
 
-A conversational AI companion application built with React, TypeScript, and LightRAG. This project features a full-stack chat interface with MongoDB for session management and LightRAG for intelligent AI responses.
+A conversational AI chatbot application built with React, TypeScript, and LightRAG. This project features a full-stack chat interface with MongoDB for session management and LightRAG for intelligent AI responses.
 
 ## 📋 Table of Contents
 
@@ -269,7 +269,7 @@ Before you begin, ensure you have the following installed on your system:
 ## 📁 Project Structure
 
 ```
-convo-companion/
+bhuvi-chatbot/
 ├── src/                          # Frontend source code
 │   ├── components/              # React components
 │   │   ├── chat/               # Chat-specific components
@@ -557,7 +557,7 @@ Once services are running:
 
 **Quick Test:**
 1. Open `http://localhost:5173` in your browser
-2. You should see the Convo Companion interface
+2. You should see the Bhuvi Chatbot interface
 3. Try sending a message to test the full stack
 
 ## 🔄 Development Workflow

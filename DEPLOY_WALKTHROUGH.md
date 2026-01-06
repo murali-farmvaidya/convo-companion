@@ -16,12 +16,12 @@ git push origin main
 
 ### STEP 3: Connect Repository
 1. Connect your GitHub account
-2. Select "convo-companion" repository
+2. Select "bhuvi-chatbot" repository
 3. Click "Connect"
 
 ### STEP 4: Configure Service
 
-**Name:** `convo-companion-server`
+**Name:** `bhuvi-chatbot-server`
 
 **Region:** Choose nearest to you
 

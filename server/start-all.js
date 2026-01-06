@@ -11,7 +11,7 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-console.log('🚀 Starting Convo Companion - Unified Server');
+console.log('🚀 Starting Bhuvi Chatbot - Unified Server');
 
 // Detect Python environment
 const lightragPath = path.join(__dirname, 'lightrag', 'Lightrag_main');
@@ -54,8 +54,8 @@ console.log('📝 Configuring LightRAG environment...');
 const lightragEnvContent = `# Auto-generated from main .env - DO NOT EDIT MANUALLY
 HOST=${process.env.LIGHTRAG_HOST || '0.0.0.0'}
 PORT=${process.env.LIGHTRAG_PORT || '9621'}
-WEBUI_TITLE=${process.env.WEBUI_TITLE || 'Convo Companion RAG'}
-WEBUI_DESCRIPTION=${process.env.WEBUI_DESCRIPTION || 'Farm Vaidya Knowledge Base'}
+WEBUI_TITLE=${process.env.WEBUI_TITLE || 'Bhuvi Chatbot RAG'}
+WEBUI_DESCRIPTION=${process.env.WEBUI_DESCRIPTION || 'Bhuvi Agricultural Knowledge Base'}
 CORS_ORIGINS=${process.env.CORS_ORIGINS || 'http://localhost:3000,http://localhost:8080,http://localhost:5173'}
 
 # API Keys

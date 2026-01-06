@@ -1,7 +1,7 @@
 #!/bin/bash
-# Convo Companion Setup Script for Linux/Mac
+# Bhuvi Chatbot Setup Script for Linux/Mac
 
-echo "🚀 Setting up Convo Companion..."
+echo "🚀 Setting up Bhuvi Chatbot..."
 
 # 1. Install Node.js dependencies
 echo ""

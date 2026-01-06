@@ -1,5 +1,5 @@
-# Convo Companion Setup Script for Windows
-Write-Host "🚀 Setting up Convo Companion..." -ForegroundColor Cyan
+# Bhuvi Chatbot Setup Script for Windows
+Write-Host "🚀 Setting up Bhuvi Chatbot..." -ForegroundColor Cyan
 
 # 1. Install Node.js dependencies
 Write-Host "`n📦 Installing Node.js dependencies..." -ForegroundColor Yellow

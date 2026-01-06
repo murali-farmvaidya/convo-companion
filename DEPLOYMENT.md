@@ -1,4 +1,4 @@
-# Convo Companion - Unified Deployment
+# Bhuvi Chatbot - Unified Deployment
 
 ## 🎯 KEY POINT: ONE .env FILE
 
@@ -74,7 +74,7 @@ pip install -r requirements-offline.txt
 **Create `server/.env`:**
 ```env
 PORT=3000
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/convo-companion
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/bhuvi-chatbot
 ```
 
 **Create `server/lightrag/Lightrag_main/.env`:**

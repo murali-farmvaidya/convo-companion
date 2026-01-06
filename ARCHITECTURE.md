@@ -1,4 +1,4 @@
-# Convo Companion Architecture
+# Bhuvi Chatbot Architecture
 
 ## 🏗️ System Overview
 
